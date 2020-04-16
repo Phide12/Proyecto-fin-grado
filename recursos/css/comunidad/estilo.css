@@ -1,0 +1,69 @@
+
+canvas {
+  outline: solid 1px black;
+  width: 720px;
+  margin: 1em 0;
+  height: 480px;
+  cursor: crosshair;
+}
+
+#contenedor_selector_color {
+  padding: 1em;
+  overflow: auto;
+  width: max-content;
+  text-align: center;
+  display: inline-block;
+}
+
+#contenedor_selector_color * {
+  padding: 0;
+}
+
+#contenedor_selector_color .icono_grande {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 16px;
+  background-size: contain;
+}
+
+#contenedor_selector_color #contenedor_colores {
+  width: 275px;
+  float: left;
+  margin-right: 1em;
+}
+
+
+#contenedor_selector_color #contenedor_colores > div {
+  width: 25px;
+  height: 25px;
+  float: left;
+  border: none;
+  opacity: 0.8;
+}
+
+#contenedor_selector_color #contenedor_colores > div:hover {
+  opacity: 1;
+}
+
+input {
+  text-align: center;
+}
+
+/* Iconos */
+
+#contenedor_selector_color #boton_limpiar {
+  background-image: url('borrar.png');
+}
+
+#contenedor_selector_color .fino {
+  background-image: url('grosor_fino.png');
+}
+
+#contenedor_selector_color .medio {
+  background-image: url('grosor_medio.png');
+}
+
+#contenedor_selector_color .grueso {
+  background-image: url('grosor_grueso.png');
+}
