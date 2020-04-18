@@ -7,71 +7,63 @@ class Exposicion extends CI_Controller
     parent::__construct();
     $this->load->model('Exposicion_model');
     $this->load->model('Usuario_model');
+    $this->load->model('Multimedia_model');
     $this->load->helper('url_helper');
     $this->load->helper('form');
   }
 
-  public function view()
+  public function vista_general()
   {
-    if (isset($_SESSION['nick'])) {
-      if (isset($_SESSION['idioma'])) {
-        $this->lang->load('mensajes', $_SESSION['idioma']);
-      } else {
-        $this->lang->load('mensajes', 'eng');
-      }
-      $data['listaExposiciones'] = $this->Exposicion_model->buscar_exposicion();
-      $this->load->view('cabecera', ['titulo' => 'Exposicion']);
-      $this->load->view('exposicion', $data);
-    }
+    $data['listaExposiciones'] = $this->Exposicion_model->buscar_exposicion();
+    $this->load->view('cabecera', ['titulo' => 'Exposicion']);
+    $this->load->view('exposicion', $data);
   }
 
+  public function vista_creacion_exposicion()
+  {
+    if (isset($_SESSION['es_Admin'])) {
+      //$data['listaExposiciones'] = $this->Exposicion_model->buscar_exposicion();
+      $this->load->view('cabecera', ['titulo' => 'Exposicion']);
+      $this->load->view('creacion_exposicion');
+    }
+  }
   public function insertar_exposicion()
   {
-    $target_dir = $_SERVER['DOCUMENT_ROOT'] . $_SERVER['SCRIPT_NAME'] . "/../imagenes/imagenes_exposicion/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    // Check if image file is a actual image or fake image
-    if (isset($_POST["submit"])) {
-      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-      if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-      } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-      }
-    }
-    // Check if file already exists
-    if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-    }
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-      echo "Sorry, your file is too large.";
-      $uploadOk = 0;
-    }
-    // Allow certain file formats
-    if (
-      $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-      && $imageFileType != "gif"
-    ) {
-      echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-      $uploadOk = 0;
-    }
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-      echo "Sorry, your file was not uploaded.";
-      // if everything is ok, try to upload file
-    } else {
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-      } else {
-        echo "Sorry, there was an error uploading your file.";
-      }
-    }
+    if (isset($_POST['crear']) && isset($_SESSION['es_Admin'])) {
 
+      //Archivo subido para la Portada.
+      if (isset($_FILES['portada'])) {
+        $this->Multimedia_model->subir_archivo($_FILES['portada'], '/imagenes/imagenes_exposicion/portada/');
+      }
+
+      //Archivos subidos para el contenido.
+      if (isset($_FILES['contenido'])) {
+        $cantidadArchivos = count($_FILES['contenido']['name']);
+        // Recorre todos los archivos subidos y los sube uno a uno.
+        for ($i = 0; $i < $cantidadArchivos; $i++) {
+          $archivo["name"] = ($_FILES['contenido']['name'][$i]);
+          $archivo["type"] = ($_FILES['contenido']['type'][$i]);
+          $archivo["tmp_name"] = ($_FILES['contenido']['tmp_name'][$i]);
+          $archivo["error"] = ($_FILES['contenido']['error'][$i]);
+          $archivo["size"] = ($_FILES['contenido']['size'][$i]);
+          $this->Multimedia_model->subir_archivo($archivo, '/imagenes/imagenes_exposicion/contenido/');
+        }
+        $this->vista_general();
+      }
+      
+
+      /* // Count total files
+      $countfiles = count($_FILES['file']['name']);
+
+      // Looping all files
+      for ($i = 0; $i < $countfiles; $i++) {
+        $directorio = $_SERVER['DOCUMENT_ROOT'] . $_SERVER['SCRIPT_NAME'] . "/../imagenes/imagenes_exposicion/";
+        $filename = $_FILES['file']['name'][$i];
+        // Upload file
+        move_uploaded_file($_FILES['file']['tmp_name'][$i], $directorio . $filename);
+      } */
+    }
+    //$this->Multimedia_model->subir_imagen_formulario('portada');
     /* if (isset($_SESSION['es_Admin'])) {
       $data['titulo'] = $this->input->post('titulo');
       $resultado = $this->Exposicion_model->buscar_exposicion($data['titulo']);
@@ -81,7 +73,7 @@ class Exposicion extends CI_Controller
       if ($resultado == null) {
         $data = $this->Exposicion_model->insertar_exposicion($data);
       }
-      $this->view();
+      $this->vista_general();
     } */
   }
 
@@ -94,7 +86,7 @@ class Exposicion extends CI_Controller
       $data['valoracion'] = $this->input->post('valoracion');
 
       $this->Exposicion_model->modificar_exposicion($data);
-      $this->view();
+      $this->vista_general();
     }
   }
 
@@ -103,7 +95,7 @@ class Exposicion extends CI_Controller
     if ($_SESSION['es_Admin'] == 1) {
       $data['id'] = $this->input->post('id');
       $this->Exposicion_model->eliminar_exposicion($data);
-      $this->view();
+      $this->vista_general();
     }
   }
 }

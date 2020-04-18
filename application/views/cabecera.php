@@ -14,15 +14,21 @@
     <h1>
       <?php echo $titulo; ?>
     </h1>
-    <?php
-    if (isset($_SESSION['nick'])) : ?>
-      <a href="<?php echo base_url() . 'index.php/exposicion/view'; ?>">Inicio</a>
-      <a href="<?php echo base_url() . 'index.php/usuario/vista_perfil'; ?>">Perfil</a>
-      <a href="<?php echo base_url() . 'index.php/usuario/cerrar_sesion'; ?>">Cerrar sesion</a>
+    <div>
+      <a href="<?php echo base_url() . 'index.php/exposicion/vista_general'; ?>">Inicio</a>
       <a href="<?php echo base_url() . 'index.php/comunidad/vista_comunidad'; ?>">Comunidad</a>
-    <?php endif;
-    if (isset($_SESSION['es_Admin'])) : ?>
-      <a href="<?php echo base_url() . 'index.php/usuario/vista_administracion'; ?>">Administracion</a>
-    <?php endif; ?>
+      <?php
+      if (isset($_SESSION['nick'])) : ?>
+        <a href="<?php echo base_url() . 'index.php/usuario/vista_perfil'; ?>">Perfil</a>
+        <a href="<?php echo base_url() . 'index.php/usuario/cerrar_sesion'; ?>">Cerrar sesion</a>
+        <?php if (isset($_SESSION['es_Admin'])) : ?>
+          <a href="<?php echo base_url() . 'index.php/usuario/vista_administracion'; ?>">Administracion</a>
+        <?php endif; ?>
+      <?php else : ?>
+        <a href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">Iniciar Sesion</a>
+        <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">Registrarse</a>
 
+      <?php endif; ?>
+
+    </div>
   </div>

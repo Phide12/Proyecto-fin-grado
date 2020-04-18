@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>recursos/css/comunidad/estilo.css">
+
+<?php if (isset($_SESSION['nick'])) : ?>
 <div>
   <form method="post" action="<?php echo base_url() . 'index.php/comunidad/insertar_obra'; ?>" enctype="multipart/form-data" onsubmit="imagenFormulario()">
     Dale un titulo a la obra: <input type="text" name="titulo" required><br>
@@ -17,10 +19,10 @@
     <br>
     <input type="submit" value="Subir">
   </form>
-
+  <script src="<?php echo base_url(); ?>recursos/javascript/comunidad/logicaLienzo.js"></script>
+  <script src="<?php echo base_url(); ?>recursos/javascript/comunidad/subirImagen.js"></script>
 </div>
-
-
+<?php endif; ?>
 
 <div>
   <h2>Obras</h2>
@@ -45,8 +47,7 @@
   }
   ?>
 </div>
-<script src="<?php echo base_url(); ?>recursos/javascript/comunidad/logicaLienzo.js"></script>
-<script src="<?php echo base_url(); ?>recursos/javascript/comunidad/subirImagen.js"></script>
+
 
 </body>
 

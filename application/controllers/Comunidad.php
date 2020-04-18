@@ -12,15 +12,12 @@ class Comunidad extends CI_Controller
 
   public function vista_comunidad()
   {
-    if (isset($_SESSION['nick'])) {
       $data = $this->Comunidad_model->buscar_obra();
       $this->load->view('cabecera', ['titulo' => 'Comunidad']);
       $this->load->view('comunidad', $data);
-    }
+    
   }
-
-  
-
+ 
   public function eliminar_obra()
   {
     if ($_SESSION['es_Admin'] == 1) {
@@ -39,7 +36,7 @@ class Comunidad extends CI_Controller
     if (isset($_SESSION['nick']) && isset($_SESSION['nombre'])) {
       $data['titulo'] = $this->input->post('titulo');
       if ($this->Comunidad_model->buscar_obra($data['titulo']) == null) {
-        $resultado = $this->Multimedia_model->subir_imagen($this->input->post('datosImagen'));
+        $resultado = $this->Multimedia_model->subir_canvas($this->input->post('datosImagen'));
         if ($resultado) {
           $data['ubicacion'] = $resultado;
           $data['autor'] = $_SESSION['nombre'];
