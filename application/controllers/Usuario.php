@@ -123,6 +123,7 @@ class Usuario extends CI_Controller
     ];
     $comprobarUsuario = $this->Usuario_model->buscar_usuario($data['nick']);
     if ($comprobarUsuario != null && $this->encriptador->verificarHash($data['contrasena'], $comprobarUsuario['contrasena'])) {
+      $_SESSION['id'] = $comprobarUsuario['id'];
       $_SESSION['nick'] = $comprobarUsuario['nick'];
       $_SESSION['nombre'] = $comprobarUsuario['nombre'];
       if ($comprobarUsuario['es_Admin'] == 1) {

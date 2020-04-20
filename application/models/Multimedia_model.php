@@ -9,18 +9,18 @@ class Multimedia_model extends CI_Model
   public function subir_archivo($archivo, $direccionCarpeta)
   {
     $rutaProyecto = $_SERVER['DOCUMENT_ROOT'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
-    $nombreArchivo = $archivo['name'];
+    $extensionArchivo = strtolower(pathinfo($archivo['name'],PATHINFO_EXTENSION));
 
     //comprueba el tamaño del archivo (el maximo permitido son 10mb)
     if ($archivo["size"] > 10000000) {
-      echo "El archivo es demasiado grande.";
       return false;
     }
 
-    // Upload file
-    $direccionCompleta = $rutaProyecto . $direccionCarpeta . $nombreArchivo;
+    // Sube el archivo
+    $nombreGenerado =  uniqid() . '.' . $extensionArchivo;
+    $direccionCompleta = $rutaProyecto . $direccionCarpeta . $nombreGenerado;
     if (move_uploaded_file($archivo['tmp_name'], $direccionCompleta)) {
-      return $direccionCarpeta . $nombreArchivo;
+      return $direccionCarpeta . $nombreGenerado;
     } else {
       return false;
     }
