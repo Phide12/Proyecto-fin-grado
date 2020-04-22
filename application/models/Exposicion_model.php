@@ -6,22 +6,26 @@ class Exposicion_model extends CI_Model
 	{
 		$this->load->database();
 	}
-	
+
 	function buscar_exposicion($id = FALSE)
 	{
 		if ($id === FALSE) {
 			$query = $this->db->get('exposicion');
-			$resultados = $query->result_array();
-			$Exposiciones = [];
-			foreach ($resultados as $resultado) {
-				$Exposiciones[] = $resultado;
-			}
-			return $Exposiciones;
+			return $query->result_array();
 		}
 		$query = $this->db->get_where('exposicion', ['id' => $id]);
-		$resultado = $query->row_array();
-		return $resultado;
-		
+		return $query->row_array();
+	}
+
+	function buscar_exposicion_por_titulo($titulo = FALSE)
+	{
+		if ($titulo != FALSE) {
+			$this->db->like('titulo', $titulo);
+			$query = $this->db->get('exposicion');
+			return $query->result_array();
+		} else {
+			return null;
+		}
 	}
 
 	function insertar_exposicion($data = FALSE)
@@ -32,12 +36,11 @@ class Exposicion_model extends CI_Model
 		return -1;
 	}
 
-	function incrementar_visitas($id = FALSE, $num_visitas = FALSE) 
+	function incrementar_visitas($id = FALSE, $num_visitas = FALSE)
 	{
-		if ($id != FALSE && $num_visitas != FALSE) {
-		$this->db->where('id', $id);
-		return $this->db->update('exposicion', ['num_visitas' => $num_visitas + 1]);
-			return;
+		if ($id != FALSE) {
+			$this->db->where('id', $id);
+			return $this->db->update('exposicion', ['num_visitas' => $num_visitas + 1]);
 		}
 	}
 
@@ -106,7 +109,7 @@ class Exposicion_model extends CI_Model
 		}
 		return -1;
 	}
-	
+
 	function eliminar_valoracion($data = FALSE)
 	{
 		if ($data != FALSE) {
@@ -123,6 +126,18 @@ class Exposicion_model extends CI_Model
 			return $this->db->delete('valoracion');
 		}
 		return -1;
+	}
+
+	
+	function buscar_favoritos_por_usuario($id)
+	{
+		if (isset($id)) {
+			$this->db->select('id_exposicion');
+			$query = $this->db->get_where('favoritos', ['id_usuario' => $id]);
+			return $query->result_array();
+		} else {
+			return null;
+		}
 	}
 
 }

@@ -33,13 +33,9 @@ class Usuario extends CI_Controller
   public function vista_administracion()
   {
     if ($_SESSION['es_Admin'] == 1) {
-      if (isset($_SESSION['idioma'])) {
-        $this->lang->load('mensajes', $_SESSION['idioma']);
-      } else {
-        $this->lang->load('mensajes', 'eng');
-      }
       $data['titulo'] = 'Administracion';
       $data['listaUsuarios'] = $this->Usuario_model->buscar_usuario();
+      $data['listaExposiciones'] = $this->Exposicion_model->buscar_exposicion();
       $this->load->view('cabecera', $data);
       $this->load->view('administracion');
     }
@@ -98,7 +94,6 @@ class Usuario extends CI_Controller
       $this->vista_administracion();
     }
   }
-
 
   public function insertar_usuario()
   {

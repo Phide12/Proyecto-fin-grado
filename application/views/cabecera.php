@@ -17,6 +17,7 @@
     <div>
       <a href="<?php echo base_url() . 'index.php/exposicion/vista_general'; ?>">Inicio</a>
       <a href="<?php echo base_url() . 'index.php/comunidad/vista_comunidad'; ?>">Comunidad</a>
+      <a href="<?php echo base_url() . 'index.php/otros/vista_sobre_nosotros'; ?>">Sobre Nosotros</a>
       <?php
       if (isset($_SESSION['nick'])) : ?>
         <a href="<?php echo base_url() . 'index.php/usuario/vista_perfil'; ?>">Perfil</a>

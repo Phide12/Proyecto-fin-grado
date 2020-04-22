@@ -1,5 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: sans-serif;
+}
+
+ul, ol {
+  list-style: none;
 }
 
 div {
@@ -8,8 +16,7 @@ div {
   border: 1px solid lightblue;
 }
 
-div a {
-  color: black;
+a {
+  color: unset;
   text-decoration: none;
-  margin: 1em;
 }

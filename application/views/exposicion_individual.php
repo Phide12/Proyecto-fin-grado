@@ -10,6 +10,22 @@
   } ?>
 
   <div>
+    <form action="<?php echo base_url() . 'index.php/exposicion/switch_favoritos'; ?>" method="post">
+    <input type="hidden" name="id_usuario" value="<?php echo $_SESSION['id']; ?>">  
+    <input type="hidden" name="id_exposicion" value="<?php echo $_GET['id']; ?>">
+    <?php 
+    if (isset($estadoFavoritos)) {
+      if ($estadoFavoritos) {
+      echo '<input type="submit" value="' . 'quitar favoritos' . '">';      
+      } else {
+        echo '<input type="submit" value="' . 'insertar favoritos' . '">';            
+      }
+    }
+    ?>
+    </form>
+  </div>
+
+  <div>
     <h1><?php echo $titulo; ?></h1><br>
     <div><?php echo $descripcion; ?></div>
     <h2><?php echo $autor; ?></h2>
@@ -17,7 +33,9 @@
     <h3><?php echo $num_visitas; ?></h3>
     <h3><?php echo $val_media; ?></h3>
   </div>
+
   <?php if (isset($_SESSION['es_Admin'])) : ?>
+    <!-- AÑADIR CONTENIDOS -->
     <div>
       <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_exposicion" value="<?php echo $id; ?>">
@@ -78,9 +96,7 @@
 <div>
 <h2>Valoraciones</h2>
 <?php
-  if (isset($listaValoraciones)) {
-    /* MOSTRAR VALORACIONES */
-    
+  if (isset($listaValoraciones)) {    
     foreach ($listaValoraciones as $valoracion) { ?>
       <div>
         Puntuacion: <?php echo $valoracion['puntuacion']; ?><br>

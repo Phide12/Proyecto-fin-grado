@@ -91,4 +91,20 @@ class Usuario_model extends CI_Model
 		}
 		return -1;
 	}
+
+	function insertar_favorito($data = FALSE)
+	{
+		if ($data != FALSE) {
+			return $this->db->insert('favoritos', $data);
+		}
+		return -1;
+	}
+
+	function eliminar_favorito($data = FALSE)
+	{
+		if ($data != FALSE) {
+			return $this->db->delete('favoritos', $data);
+		}
+		return -1;
+	}
 }

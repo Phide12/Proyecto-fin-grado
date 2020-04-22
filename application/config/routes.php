@@ -52,4 +52,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['exposicion'] = 'exposicion';
 $route['usuario'] = 'usuario';
 $route['comunidad'] = 'comunidad';
+$route['otros'] = 'otros';
 $route['default_controller'] = 'usuario/vista_login';

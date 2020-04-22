@@ -1,4 +1,4 @@
-  <div>
+<div>
     <?php echo form_open('usuario/comprobar_login'); ?>
     <h1>Iniciar Sesion</h1>
     <br>
