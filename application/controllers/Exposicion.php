@@ -25,6 +25,8 @@ class Exposicion extends CI_Controller
     if (isset($_SESSION['es_Admin'])) {
       $this->load->view('cabecera', ['titulo' => 'Exposicion']);
       $this->load->view('exposicion_creacion', $error);
+    } else {
+      redirect('exposicion/vista_general');
     }
   }
 
@@ -82,7 +84,6 @@ class Exposicion extends CI_Controller
         }
       }
       redirect('exposicion/vista_exposicion_individual?id=' . $_POST['id_exposicion']);
-
     } else {
       redirect('exposicion/vista_general');
     }
@@ -123,17 +124,26 @@ class Exposicion extends CI_Controller
 
   public function insertar_valoracion()
   {
-    if (isset($_SESSION['nick'])) {
-      //Archivo subido para la Portada.
+    if (isset($_SESSION['id'])) {
+      /* si existe alguna valoracion previa en la misma exposicion se elimina */
+      $resultado = $this->Exposicion_model->buscar_valoracion_por_usuario($_SESSION['id']);
+      if ($resultado != null) {
+        $this->Exposicion_model->eliminar_valoracion($resultado);
+      }
+      /* se inserta la valoracion */
       $data['puntuacion'] = $_POST['puntuacion'];
+      if (!is_numeric($data['puntuacion']) || $data['puntuacion'] < 0 || $data['puntuacion'] > 5) {
+        $data['puntuacion'] = 0;
+      }
       $data['contenido'] = $_POST['contenido'];
       $data['id_usuario'] = $_SESSION['id'];
       $data['id_exposicion'] = $_POST['id_exposicion'];
       $this->Exposicion_model->insertar_valoracion($data);
-      var_dump($_POST['id_exposicion']);
+
       redirect('exposicion/vista_exposicion_individual?id=' . $_POST['id_exposicion']);
     }
   }
+
 
   public function switch_favoritos()
   {

@@ -1,5 +1,5 @@
 <?php if (isset($_SESSION['es_Admin'])) : ?>
-  <div>
+  <main>
     <a href="<?php echo base_url() . 'index.php/exposicion/vista_general'; ?>">
       <h2>Volver a la pagina general de exposiciones</h2>
     </a>
@@ -22,14 +22,9 @@
 
       <input type="submit" name="crear" value="Crear" formaction="<?php echo base_url() . 'index.php/exposicion/insertar_exposicion'; ?>">
     </form>
-    
-
-  </div>
+  </main>
   <script src="<?php echo base_url(); ?>recursos/javascript/exposicion/crearExposicion.js"></script>
-
-
 <?php endif; ?>
-</div>
 </body>
 
 </html>

@@ -1,17 +1,12 @@
 document.addEventListener('DOMContentLoaded', cargarLista);
 
 function cargarLista() {
-  anchura = 360;
-  altura = 240;
-  if (listaFavoritos != null) {
+  if (typeof listaFavoritos !== 'undefined') {
     cargarBotonFavoritos();
-  } else {
-    mostrandoFavoritos = false;
   }
   document.getElementById('boton_buscar').addEventListener('click', mostrarListadoExposiciones);
   document.getElementById('boton_resetear').addEventListener('click', resetearBusqueda);
-  
-  
+  document.getElementById('boton_random').addEventListener('click', redirigirExposicionRandom);
   mostrarListadoExposiciones();
 }
 
@@ -26,10 +21,9 @@ function mostrarListadoExposiciones() {
   document.getElementById('catalogo_exposiciones').innerHTML = '';
   numeroResultadosBusqueda = 0;
   /* FILTRADO DE EXPOSICIONES QUE SE MOSTRARAN */
-  if (listaFavoritos != null && mostrandoFavoritos) {
-    for (let i = 0; i < listaExposiciones.length; i++) {      
+  if (typeof listaFavoritos !== 'undefined' && mostrandoFavoritos) {
+    for (let i = 0; i < listaExposiciones.length; i++) {
       if (comprobarFavoritos(listaExposiciones[i].id) && comprobarBusqueda(listaExposiciones[i].titulo)) {
-        console.log(listaExposiciones);
         listarExposicion(listaExposiciones[i]);
         numeroResultadosBusqueda++;
       }
@@ -56,7 +50,7 @@ function comprobarFavoritos(idExposicion) {
 
 function comprobarBusqueda(tituloExposicion) {
   let valorBusqueda = document.getElementById('buscar_exposicion').value;
-  if (valorBusqueda != null) {
+  if (valorBusqueda != null && valorBusqueda != "") {
     return tituloExposicion.includes(valorBusqueda);
   }
   return true;
@@ -64,7 +58,7 @@ function comprobarBusqueda(tituloExposicion) {
 
 function listarExposicion(exposicion) {
   /* CREACION DE LA VISTA PREVIA PARA CADA EXPOSICION  */
-  /* header de la vista previa */
+
   let titulo = document.createElement('h2');    /* titulo */
   titulo.className = 'exposicion_header_titulo';
   titulo.innerHTML = exposicion.titulo;
@@ -78,19 +72,17 @@ function listarExposicion(exposicion) {
   headerExposicion.appendChild(titulo);
   headerExposicion.appendChild(subtitulo);
 
-  /* portada */
-  let imagenPortada = new Image(anchura, altura);
+  let imagenPortada = new Image(360, 240);    /* imagen portada */
   imagenPortada.src = rutaServidor + exposicion.portada;
 
-  let tarjetaExposicion = document.createElement('li');
+  let tarjetaExposicion = document.createElement('li');   /* contenedor */
   tarjetaExposicion.className = 'exposicion_tarjeta';
   tarjetaExposicion.appendChild(headerExposicion);
   tarjetaExposicion.appendChild(imagenPortada);
 
-  let enlaceBloque = document.createElement('a');
+  let enlaceBloque = document.createElement('a');   /* enlace */
   enlaceBloque.href = rutaServidor + 'index.php/exposicion/vista_exposicion_individual?id=' + exposicion.id;
   enlaceBloque.appendChild(tarjetaExposicion);
-
 
   /* una vez creada la vista previa de la exposicion se añade a la lista */
   document.getElementById('catalogo_exposiciones').appendChild(enlaceBloque);
@@ -119,4 +111,11 @@ function cambiarModoFavoritos() {
     mostrandoFavoritos = true;
   }
   mostrarListadoExposiciones();
+}
+
+function redirigirExposicionRandom() {
+  if (typeof listaExposiciones !== 'undefined') {
+      let id_exposicion = listaExposiciones[Math.floor(Math.random() * listaExposiciones.length)].id;
+      window.location.replace(rutaServidor + 'index.php/exposicion/vista_exposicion_individual?id=' + id_exposicion);
+  }
 }

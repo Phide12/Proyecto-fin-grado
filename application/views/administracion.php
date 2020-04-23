@@ -1,4 +1,4 @@
-<div>
+<main>
   <h2>Lista de Usuarios</h2>
 
   <?php
@@ -34,7 +34,7 @@
     </select>
   <?php endif; ?>
 
-</div>
+</main>
 
 </body>
 

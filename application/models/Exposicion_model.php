@@ -105,7 +105,18 @@ class Exposicion_model extends CI_Model
 	function insertar_valoracion($data = FALSE)
 	{
 		if ($data != FALSE) {
-			return $this->db->insert('valoracion', $data);
+			$resultado = $this->db->insert('valoracion', $data);
+			$this->db->select('puntuacion');
+			$listadoPuntuacion = $this->db->get_where('valoracion', ['id_exposicion' => $data['id_exposicion']])->result_array();
+
+			/* Se calcula la puntuacion media y se registra en la exposicion*/
+			$total = 0;
+			foreach ($listadoPuntuacion as $puntuacion) {
+				$total += $puntuacion['puntuacion'];
+			}
+			$puntuacionMedia = $total / count($listadoPuntuacion);
+			$this->db->update('exposicion', ['val_media' => $puntuacionMedia], ['id' => $data['id_exposicion']]);
+			return $resultado;
 		}
 		return -1;
 	}
@@ -128,16 +139,24 @@ class Exposicion_model extends CI_Model
 		return -1;
 	}
 
-	
-	function buscar_favoritos_por_usuario($id)
+	function buscar_valoracion_por_usuario($id_usuario)
 	{
-		if (isset($id)) {
+		if (isset($id_usuario)) {
+			$this->db->select('id');
+			$query = $this->db->get_where('valoracion', ['id_usuario' => $id_usuario]);
+			return $query->row_array();
+		}
+		return -1;
+	}
+
+	function buscar_favoritos_por_usuario($id_usuario)
+	{
+		if (isset($id_usuario)) {
 			$this->db->select('id_exposicion');
-			$query = $this->db->get_where('favoritos', ['id_usuario' => $id]);
+			$query = $this->db->get_where('favoritos', ['id_usuario' => $id_usuario]);
 			return $query->result_array();
 		} else {
 			return null;
 		}
 	}
-
 }

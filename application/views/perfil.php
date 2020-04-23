@@ -1,3 +1,4 @@
+<main>
   <div>
     <h2>Datos de Perfil</h2>
     <?php echo form_open('usuario/modificar_usuario'); ?>
@@ -17,6 +18,7 @@
     <input type="submit" value="Cambiar Contraseña">
     </form>
   </div>
-  </body>
+</main>
 
-  </html>
+</body>
+</html>

@@ -5,16 +5,17 @@
   <title>proyecto_JorgeM</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?php echo base_url() . "recursos/css/cabecera.css"; ?>">
   <link rel="stylesheet" href="<?php echo base_url() . "recursos/css/estilo.css"; ?>">
 </head>
 
 <body>
 
-  <div>
+  <header>
     <h1>
       <?php echo $titulo; ?>
     </h1>
-    <div>
+    <nav>
       <a href="<?php echo base_url() . 'index.php/exposicion/vista_general'; ?>">Inicio</a>
       <a href="<?php echo base_url() . 'index.php/comunidad/vista_comunidad'; ?>">Comunidad</a>
       <a href="<?php echo base_url() . 'index.php/otros/vista_sobre_nosotros'; ?>">Sobre Nosotros</a>
@@ -28,8 +29,6 @@
       <?php else : ?>
         <a href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">Iniciar Sesion</a>
         <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">Registrarse</a>
-
       <?php endif; ?>
-
-    </div>
-  </div>
+    </nav>
+  </header>
