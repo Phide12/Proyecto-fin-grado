@@ -5,25 +5,23 @@
 
   <h2>Vista exposicion indiv</h2>
 
-  <?php if (isset($error)) {
-    echo '<div>' . $error . '</div>';
-  } ?>
-
-  <div>
-    <form action="<?php echo base_url() . 'index.php/exposicion/switch_favoritos'; ?>" method="post">
-      <input type="hidden" name="id_usuario" value="<?php echo $_SESSION['id']; ?>">
-      <input type="hidden" name="id_exposicion" value="<?php echo $_GET['id']; ?>">
-      <?php
-      if (isset($estadoFavoritos)) {
-        if ($estadoFavoritos) {
-          echo '<input type="submit" value="' . 'quitar favoritos' . '">';
-        } else {
-          echo '<input type="submit" value="' . 'insertar favoritos' . '">';
+  <?php if (isset($_SESSION['id'])) { ?>
+    <div>
+      <form action="<?php echo base_url() . 'index.php/exposicion/switch_favoritos'; ?>" method="post">
+        <input type="hidden" name="id_usuario" value="<?php echo $_SESSION['id']; ?>">
+        <input type="hidden" name="id_exposicion" value="<?php echo $_GET['id']; ?>">
+        <?php
+        if (isset($estadoFavoritos)) {
+          if ($estadoFavoritos) {
+            echo '<input type="submit" value="' . 'quitar favoritos' . '">';
+          } else {
+            echo '<input type="submit" value="' . 'insertar favoritos' . '">';
+          }
         }
-      }
-      ?>
-    </form>
-  </div>
+        ?>
+      </form>
+    </div>
+  <?php } ?>
 
   <div>
     <h1><?php echo $titulo; ?></h1><br>

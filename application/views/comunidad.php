@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>recursos/css/comunidad/estilo.css">
 <main>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>recursos/css/comunidad/estilo.css">
   <?php if (isset($_SESSION['nick'])) : ?>
+    <!-- HERRAMIENTA DE DIBUJO -->
     <div>
       <form method="post" action="<?php echo base_url() . 'index.php/comunidad/insertar_obra'; ?>" enctype="multipart/form-data" onsubmit="imagenFormulario()">
         Dale un titulo a la obra: <input type="text" name="titulo" required><br>
@@ -49,4 +50,5 @@
   </div>
 </main>
 </body>
+
 </html>
