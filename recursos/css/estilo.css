@@ -18,13 +18,14 @@ body {
 a {
   color: #212020;
   text-decoration: none;
+  cursor:pointer;
 }
 
 ul, ol {
   list-style: none;
 }
 
-div {
+main div {
   text-align: center;
   padding: 1em;
   border: 1px solid lightblue;
@@ -33,6 +34,19 @@ div {
 main {
   margin: auto;
   width: 96%;
+}
+
+.contenedor-transparente {
+  text-align: center;
+  margin: auto;
+}
+
+.contenedor-blanco {
+  background-color: #ffffff;
+}
+
+.mostrar_movil {
+  visibility: visible;
 }
 
 @media (min-width: 500px) {
@@ -44,6 +58,9 @@ main {
 @media (min-width: 750px) {
   main {
     width: 81.3%;
+  }
+  .mostrar_movil {
+    visibility: hidden;
   }
 }
 
@@ -58,67 +75,108 @@ main {
   width: 100%;
   position: fixed;
   top: 0;
-  height: 60px;
+  height: 80px;
   background: #F7F4F5;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-}
-
-.mensaje_usuario > a {
-  font-weight: bold;
-}
-
-.icono_menu {
-  font-size:2em;
-  cursor:pointer
+  padding: 0.5em;
+  border: solid 1px #EAE6E8;
 }
 
 .header-main + * {
-  margin-top: 60px;
+  margin-top: 140px;
+}
+
+.header-main .mensaje_user {
+  display: none;
+  margin: auto 1em;
+}
+
+.header-main .mensaje_user > a {
+  font-weight: bold;
+  color: #C5497B;
+}
+
+.header-main .mensaje_user > a:hover {
+  color: #AB426C;
+  text-decoration: underline;
+}
+
+.header-main a.icon_menu {
+  width: 2em;
+  height: 100%;
+  background-image: url(iconos/menu_icon.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-main h1.page_title {
+  margin: 0 0.5em;
+  flex: 1;
+  text-align: right;
+}
+
+@media (min-width: 500px) {
+  main {
+    width: 88.6%;
+  }
+}
+
+@media (min-width: 750px) {
+  main {
+    width: 81.3%;
+  }
+  .header-main .mensaje_user {
+    display: inline;
+  }
+  .header-main h1.page_title {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1080px) {
+  main {
+    width: 74%;
+  }
+}
+
+/* NAVIGATION - SIDENAV DESPLEGABLE */
+.icon_menu {
+  font-size:2em;
 }
 
 .sidenav-main {
   height: 100%;
-  width: 250;
   position: fixed;
-  z-index: 1;
+  width: 320px;
   top: 0;
-  left: -100px;
   background-color: #ffffff;
-  overflow-x: hidden;
   transition: 0.5s;
-  left: -250px;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
-.sidenav-main a {
-  padding: 8px 8px 8px 32px;
-  font-size: 25px;
+.sidenav-main .lista a {
+  padding: 1em 2em;
   display: block;
+  border-top: solid 1px #EAE6E8;
 }
 
-.sidenav-main a:hover {
+.header-main .sidenav-main a:hover {
   color: #6A6466;
+  text-decoration: underline;
 }
 
-.sidenav-main #boton_cerrar_menu {
+.sidenav-main a#boton_cerrar_menu {
   position: absolute;
   top: 0;
   right: 0;
-  width: max-content;
-  font-size: 36px;
+  width: 80px;
+  height: 80px;
+  background-image: url(iconos/close_icon.svg);
+  background-position: center;
+  background-size: 40px;
+  background-repeat: no-repeat;
 }
 
-h2.inversion {
-  font-size: 10em;
-  background: inherit;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: invert(1);
-}
-
-.sidenav-main {
-  
-}
+/* FORMS */

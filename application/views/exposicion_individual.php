@@ -1,9 +1,8 @@
 <main>
   <a href="<?php echo base_url() . 'index.php/exposicion/vista_general'; ?>">
-    <h2>Volver a la pagina general de exposiciones</h2>
+    <h2>Volver</h2>
   </a>
 
-  <h2>Vista exposicion indiv</h2>
 
   <?php if (isset($_SESSION['id'])) { ?>
     <div>
@@ -75,7 +74,6 @@
   </div>
 
   <!-- VALORACIONES -->
-  <div>
     <?php if (isset($_SESSION['nick'])) { ?>
       <!-- CREAR VALORACION -->
       <div>
@@ -85,15 +83,15 @@
           Puntuacion 1-5<br>
           <div class="contenedor_puntuacion">
             <input id="star5" name="puntuacion" type="radio" value="5" class="radio-btn hide" />
-            <label for="star5">☆</label>
+            <label for="star5">&#9734;</label>
             <input id="star4" name="puntuacion" type="radio" value="4" class="radio-btn hide" />
-            <label for="star4">☆</label>
+            <label for="star4">&#9734;</label>
             <input id="star3" name="puntuacion" type="radio" value="3" class="radio-btn hide" />
-            <label for="star3">☆</label>
+            <label for="star3">&#9734;</label>
             <input id="star2" name="puntuacion" type="radio" value="2" class="radio-btn hide" />
-            <label for="star2">☆</label>
+            <label for="star2">&#9734;</label>
             <input id="star1" name="puntuacion" type="radio" value="1" class="radio-btn hide" />
-            <label for="star1">☆</label>
+            <label for="star1">&#9734;</label>
           </div>
           <br>
           Contenido de la valoracion: <br>

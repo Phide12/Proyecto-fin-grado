@@ -29,5 +29,5 @@
 .contenedor_puntuacion > input.radio-btn:checked ~ label:before,
 .contenedor_puntuacion > input.radio-btn:checked ~ label:before {
     content: "\2605";
-    color: #FFD700;
+    color: #49C498;
 }
