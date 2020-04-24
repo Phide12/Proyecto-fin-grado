@@ -1,22 +1,26 @@
 <main>
-  <div class="contenedor-transparente">
-    <?php echo form_open('usuario/comprobar_login'); ?>
-    <h1>Iniciar Sesion</h1>
-    <br>
-    <br>
-    Nick: <input type="text" name="nick" required><br>
-    Contraseña: <input type="password" name="contrasena" required><br>
-    <input type="submit" value="Iniciar Sesion">
-    </form>
-    <br>
-  </div>
 
-  <div class="contenedor-blanco">
+  <div class="contenedor-formulario-transparente">
     ¿No estas registrado todavia?
     <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">
       <b>Registrate ahora</b>
     </a>
   </div>
+
+  <div class="contenedor-formulario">
+    <div class="form_header">
+      <h3>Inicia Sesión para continuar</h3>
+    </div>
+    <?php echo form_open('usuario/comprobar_login'); ?>
+    <input placeholder="Nick" type="text" name="nick" required><br>
+    <input placeholder="Contraseña" type="password" name="contrasena" required><br>
+    <input type="submit" value="Iniciar Sesion">
+    </form>
+    <br>
+
+  </div>
+
+
 
 </main>
 

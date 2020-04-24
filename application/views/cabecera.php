@@ -21,11 +21,11 @@
     <?php if (isset($_SESSION['nick'])) : ?>
       <span class="mensaje_user">Buenas, <?php echo $_SESSION['nick'] ?>.
         <a href="<?php echo base_url() . 'index.php/usuario/vista_perfil'; ?>">Perfil</a> /
-        <a href="<?php echo base_url() . 'index.php/usuario/cerrar_sesion'; ?>">Cerrar sesion</a>
+        <a href="<?php echo base_url() . 'index.php/usuario/cerrar_sesion'; ?>">Cerrar sesión</a>
       </span>
     <?php else : ?>
       <span class="mensaje_user">¿Estas registrado?
-        <a href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">Iniciar Sesion</a> /
+        <a href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">Iniciar Sesión</a> /
         <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">Registrarse</a>
       </span>
     <?php endif; ?>
@@ -37,15 +37,16 @@
         <a href="<?php echo base_url() . 'index.php/comunidad/vista_comunidad'; ?>">Comunidad</a>
         <a href="<?php echo base_url() . 'index.php/otros/vista_sobre_nosotros'; ?>">Sobre Nosotros</a>
         <?php if (isset($_SESSION['es_Admin'])) : ?>
-          <a href="<?php echo base_url() . 'index.php/usuario/vista_administracion'; ?>">Administracion</a>
+          <a href="<?php echo base_url() . 'index.php/usuario/vista_administracion'; ?>">Administración</a>
         <?php endif; ?>
         <?php if (isset($_SESSION['nick'])) : ?>
-            <a class="mostrar_movil" href="<?php echo base_url() . 'index.php/usuario/vista_perfil'; ?>">Perfil</a>
-            <a class="mostrar_movil" href="<?php echo base_url() . 'index.php/usuario/cerrar_sesion'; ?>">Cerrar sesion</a>
+            <a href="<?php echo base_url() . 'index.php/usuario/vista_perfil'; ?>">Perfil</a>
+            <a href="<?php echo base_url() . 'index.php/usuario/cerrar_sesion'; ?>">Cerrar sesión</a>
         <?php else : ?>
-            <a class="mostrar_movil" href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">Iniciar Sesion</a>
-            <a class="mostrar_movil" href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">Registrarse</a>
+            <a href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">Iniciar Sesión</a>
+            <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">Registrarse</a>
         <?php endif; ?>
       </div>
     </nav>
   </header>
+  <div id="filtro_oscuro" ></div>
