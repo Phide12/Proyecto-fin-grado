@@ -1,69 +1,93 @@
 
 canvas {
-  outline: solid 1px black;
-  width: 720px;
+  border: solid 1px #EAE6E8;
+  width: 320px;
+  height: 320px;
   margin: 1em 0;
-  height: 480px;
   cursor: crosshair;
 }
 
-#contenedor_selector_color {
-  padding: 1em;
+.contenedor_herramientas {
   overflow: auto;
-  width: max-content;
   text-align: center;
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-#contenedor_selector_color * {
-  padding: 0;
+.bloque_herramientas {
+  padding: 1em;
 }
 
-#contenedor_selector_color .icono_grande {
+.contenedor_herramientas .icono_grande {
   width: 50px;
   height: 50px;
   float: left;
   margin-right: 16px;
   background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#contenedor_selector_color #contenedor_colores {
+.contenedor_herramientas #contenedor_colores {
   width: 275px;
   float: left;
-  margin-right: 1em;
 }
 
-
-#contenedor_selector_color #contenedor_colores > div {
+.contenedor_herramientas #contenedor_colores > div {
   width: 25px;
   height: 25px;
   float: left;
-  border: none;
-  opacity: 0.8;
 }
 
-#contenedor_selector_color #contenedor_colores > div:hover {
-  opacity: 1;
+.seleccionable:hover {
+  border: solid 1px black;
 }
 
-input {
-  text-align: center;
+@media (max-width: 550px) {
+  #color_actual {
+    width: 275px;
+    margin-right: 0;
+  }
+  .bloque_herramientas {
+    padding: 0.5em 0;
+  }
+}
+@media (min-width: 500px) {
+  canvas {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+@media (min-width: 750px) {
+  canvas {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+@media (min-width: 1080px) {
+  canvas {
+    width: 620px;
+    height: 620px;
+  }
 }
 
 /* Iconos */
 
-#contenedor_selector_color #boton_limpiar {
+.contenedor_herramientas #boton_limpiar {
   background-image: url('borrar.png');
 }
 
-#contenedor_selector_color .fino {
+.contenedor_herramientas .fino {
   background-image: url('grosor_fino.png');
 }
 
-#contenedor_selector_color .medio {
+.contenedor_herramientas .medio {
   background-image: url('grosor_medio.png');
 }
 
-#contenedor_selector_color .grueso {
+.contenedor_herramientas .grueso {
   background-image: url('grosor_grueso.png');
 }

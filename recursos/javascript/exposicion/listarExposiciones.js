@@ -59,11 +59,11 @@ function comprobarBusqueda(tituloExposicion) {
 function listarExposicion(exposicion) {
   /* CREACION DE LA VISTA PREVIA PARA CADA EXPOSICION  */
 
-  let titulo = document.createElement('h2');    /* titulo */
+  let titulo = document.createElement('h3');    /* titulo */
   titulo.className = 'exposicion_header_titulo';
   titulo.innerHTML = exposicion.titulo;
 
-  let subtitulo = document.createElement('h2');   /* subtitulo */
+  let subtitulo = document.createElement('h3');   /* subtitulo */
   subtitulo.className = 'exposicion_header_subtitulo';
   subtitulo.innerHTML = exposicion.autor;
 

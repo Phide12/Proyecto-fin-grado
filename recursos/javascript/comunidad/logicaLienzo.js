@@ -88,7 +88,8 @@ function cargarSelectorColor() {
   ];
   for (let i = 0; i < arrayColores.length; i++) {
     let nuevoColor = document.createElement('div');
-    nuevoColor.setAttribute('id', i);
+    nuevoColor.id = i;
+    nuevoColor.className = 'seleccionable';
     nuevoColor.style.backgroundColor = arrayColores[i];
     nuevoColor.addEventListener('click', seleccionarColor);
     contenedorColores.appendChild(nuevoColor);
@@ -120,9 +121,9 @@ function mostrarGrosorActual() {
   let listaBotones = document.getElementsByClassName('boton_grosor');
   for (let i = 0; i < listaBotones.length; i++) {
     if (listaBotones[i].id == grosorLinea) {
-      listaBotones[i].style.outline = 'solid 1px #212020'
+      listaBotones[i].style.border = 'solid 1px #212020';
     } else {
-      listaBotones[i].style.outline = 'none'
+      listaBotones[i].style.border = 'solid 1px #EAE6E8';
     }
   }
 }

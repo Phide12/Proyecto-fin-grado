@@ -11,11 +11,13 @@
     <div class="form_header">
       <h3>Inicia Sesión para continuar</h3>
     </div>
-    <?php echo form_open('usuario/comprobar_login'); ?>
-    <input placeholder="Nick" type="text" name="nick" required><br>
-    <input placeholder="Contraseña" type="password" name="contrasena" required><br>
-    <input type="submit" value="Iniciar Sesion">
-    </form>
+    <div class="formulario">
+      <?php echo form_open('usuario/comprobar_login'); ?>
+      <input placeholder="Nick" type="text" name="nick" required><br>
+      <input placeholder="Contraseña" type="password" name="contrasena" required><br>
+      <input type="submit" value="Iniciar Sesion">
+      </form>
+    </div>
     <br>
 
   </div>

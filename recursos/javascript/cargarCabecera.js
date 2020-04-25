@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', cargarCabecera);
 function cargarCabecera() {
   sideNav = document.getElementById("sideNav");
   filtroOscuro = document.getElementById('filtro_oscuro');
+  filtroOscuro.style.position = 'fixed';
   filtroOscuro.style.height = screen.height + 'px';  
   filtroOscuro.addEventListener('click', cerrarMenu);
   document.getElementById('boton_abrir_menu').addEventListener('click', abrirMenu);

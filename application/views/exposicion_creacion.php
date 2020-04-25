@@ -9,7 +9,7 @@
     <?php if (isset($error)) {
       echo '<div>' . $error . '</div>';
     } ?>
-
+    <div class="formulario">
     <form method="post" id="crear_exposicion" name="crear_exposicion" enctype="multipart/form-data">
       Titulo: <input type="text" name="titulo"><br>
       Autor de la exposicion: <input type="text" name="autor"><br>
@@ -22,6 +22,7 @@
 
       <input type="submit" name="crear" value="Crear" formaction="<?php echo base_url() . 'index.php/exposicion/insertar_exposicion'; ?>">
     </form>
+    </div>
   </main>
   <script src="<?php echo base_url(); ?>recursos/javascript/exposicion/crearExposicion.js"></script>
 <?php endif; ?>

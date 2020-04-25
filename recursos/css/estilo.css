@@ -33,6 +33,10 @@ main {
   min-height: 600px;
 }
 
+.ocultar_movil {
+  display: none;
+}
+
 @media (min-width: 500px) {
   main {
     margin-top: 100px;
@@ -44,6 +48,10 @@ main {
   main {
     margin-top: 110px;
     width: 81.3%;
+  }
+
+  .ocultar_movil {
+    display: block;
   }
 }
 
@@ -179,8 +187,7 @@ main {
   padding: 0.5em;
 }
 
-.contenedor-secundario form {
-  display: block;
+.contenedor-secundario .formulario {
   margin: 0 2em;
 }
 
@@ -230,6 +237,10 @@ main {
     appearance: none;
 }
 
+.contenedor-rejilla {
+  
+}
+
 @media (max-width: 500px) {
   .contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario input[type=submit] {
     padding: 0.75em 1em;
@@ -243,3 +254,4 @@ main {
     border-radius: 4px;
   }
 }
+
