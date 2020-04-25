@@ -1,13 +1,13 @@
 <main>
 
-  <div class="contenedor-formulario-transparente">
+  <div class="contenedor-secundario contenedor-transparente">
     ¿Ya estas registrado?
     <a href="<?php echo base_url() . 'index.php/usuario/vista_login'; ?>">
       <b>Inicia sesión</b>
     </a>
   </div>
 
-  <div class="contenedor-formulario">
+  <div class="contenedor-secundario contenedor-blanco">
     <div class="form_header">
       <h3>Únete a nuestra comunidad</h3>
     </div>

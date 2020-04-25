@@ -1,41 +1,49 @@
-<main>
-  <h2>Lista de Usuarios</h2>
+<?php if (isset($_SESSION['es_Admin'])) : ?>
+  <main>
 
-  <?php
-  if ($_SESSION['es_Admin'] == 1 && isset($listaUsuarios)) : ?>
-    <form method="post" action="<?php echo base_url() . 'index.php/usuario/eliminar_usuario'; ?>">
-      <select name="nick">
-        <?php foreach ($listaUsuarios as $usuario) : ?>
-          <?php if ($usuario['es_Admin'] != 1) : ?>
-            <option value="<?php echo $usuario['nick'] ?>"><?php echo $usuario['id'] ?> - <?php echo $usuario['nick'] ?></option>
-        <?php endif;
-        endforeach; ?>
-      </select>
-      <input type="submit" value="eliminar">
-    </form>
+    <div class="contenedor-secundario contenedor-transparente">
+      <h3>Panel de administración</h3>
+      En esta sección se permite al administrador borrar usuarios y exposiciones.<br>
+      ¡Cuidado, los elementos se eliminaran de forma permanente, actua con precaución!
+    </div>
 
-  <?php endif; ?>
+    <?php
+    if (isset($listaUsuarios)) : ?>
+      <div class="contenedor-secundario contenedor-blanco">
+        <form method="post" action="<?php echo base_url() . 'index.php/usuario/eliminar_usuario'; ?>">
+          <label for="nick">Seleccionar un usuario de la lista para eliminarlo</label>
+          <select name="nick">
+            <?php foreach ($listaUsuarios as $usuario) : ?>
+              <?php if ($usuario['es_Admin'] != 1) : ?>
+                <option value="<?php echo $usuario['nick'] ?>"><?php echo $usuario['id'] ?> - <?php echo $usuario['nick'] ?></option>
+            <?php endif;
+            endforeach; ?>
+          </select>
+          <input type="submit" value="Eliminar">
+        </form>
+      </div>
 
-</div>
-<div>
-  <h2>Lista de Exposiciones</h2>
+    <?php endif; ?>
 
-  <?php
-  if ($_SESSION['es_Admin'] == 1 && isset($listaExposiciones)) : ?>
-    Titulo:
-    <?php foreach ($listaExposiciones as $exposicion) : ?>
-      <form method="POST" action="<?php echo base_url() . 'index.php/exposicion/eliminar_exposicion'; ?>">
-        <input type="hidden" name="id" value="<?php echo $exposicion['id']; ?>">
-        <input type="hidden" name="portada" value="<?php echo $exposicion['portada']; ?>">
-        <?php echo $exposicion['titulo'] ?>
-        <input type="submit" value="Eliminar">
-      </form>
-    <?php endforeach; ?>
-    </select>
-  <?php endif; ?>
+    <?php
+    if (isset($listaExposiciones)) : ?>
+      <div class="contenedor-secundario contenedor-blanco">
+        <form method="POST" action="<?php echo base_url() . 'index.php/exposicion/eliminar_exposicion'; ?>">
+          <label for="exposicion">Seleccionar una exposición de la lista para eliminarla</label>
+          <select name="exposicion">
+            <?php foreach ($listaExposiciones as $exposicion) {
+              $valorOption = json_encode(['id' => $exposicion['id'], 'portada' => $exposicion['portada']]);
+              echo '<option value='.$valorOption.'>' . $exposicion['titulo'] . '</option>';
+            } ?>
+          </select>
+          <input type="submit" value="Eliminar">
+        </form>
+      <?php endif; ?>
+      </div>
+    <?php endif; ?>
 
-</main>
+  </main>
 
-</body>
+  </body>
 
-</html>
+  </html>

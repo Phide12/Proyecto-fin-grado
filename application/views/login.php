@@ -1,13 +1,13 @@
 <main>
 
-  <div class="contenedor-formulario-transparente">
+  <div class="contenedor-secundario contenedor-transparente">
     ¿No estas registrado todavia?
     <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">
       <b>Registrate ahora</b>
     </a>
   </div>
 
-  <div class="contenedor-formulario">
+  <div class="contenedor-secundario contenedor-blanco">
     <div class="form_header">
       <h3>Inicia Sesión para continuar</h3>
     </div>

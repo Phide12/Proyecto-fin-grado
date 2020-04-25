@@ -85,15 +85,16 @@ class Exposicion extends CI_Controller
       }
       redirect('exposicion/vista_exposicion_individual?id=' . $_POST['id_exposicion']);
     } else {
-      redirect('exposicion/vista_general');
+      redirect('usuario/vista_administracion');
     }
   }
 
   public function eliminar_exposicion()
   {
-    if ($_SESSION['es_Admin'] == 1) {
-      $data['id'] = $_POST['id'];
-      if ($this->Multimedia_model->eliminar_imagen($_POST['portada'])) {
+    if (isset($_SESSION['es_Admin'])) {
+      $datosRecibidos = json_decode($_POST['exposicion']);
+      if ($this->Multimedia_model->eliminar_imagen($datosRecibidos->portada)) {
+        $data['id'] = $datosRecibidos->id;
         $this->Exposicion_model->eliminar_exposicion($data);
         $this->Exposicion_model->eliminar_todo_contenido_exposicion($data);
         $this->Exposicion_model->eliminar_valoraciones_exposicion($data);
@@ -104,7 +105,7 @@ class Exposicion extends CI_Controller
 
   public function eliminar_contenido()
   {
-    if ($_SESSION['es_Admin'] == 1) {
+    if (isset($_SESSION['es_Admin'])) {
       $data['id'] = $_POST['id_contenido'];
       if ($this->Multimedia_model->eliminar_imagen($_POST['ubicacion'])) {
         $this->Exposicion_model->eliminar_contenido_exposicion($data);
@@ -115,7 +116,8 @@ class Exposicion extends CI_Controller
 
   public function eliminar_valoracion()
   {
-    if ($_SESSION['es_Admin'] == 1) {
+    if (isset($_SESSION['es_Admin'])) {
+      var_dump($_POST['exposicion']);
       $data['id'] = $_POST['id'];
       $this->Exposicion_model->eliminar_valoracion($data);
       redirect('exposicion/vista_exposicion_individual?id=' . $_POST['id_exposicion']);

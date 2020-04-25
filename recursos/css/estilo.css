@@ -157,9 +157,9 @@ main {
   z-index: 5;
 }
 
-/* INICIO SESION Y REGISTRO */
+/* MAIN - CONTENEDORES GENERALES */
 
-.contenedor-formulario, .contenedor-formulario-transparente {
+.contenedor-secundario {
   padding: 1em 0;
   border-radius: 4px;
   text-align: center;
@@ -167,51 +167,79 @@ main {
   max-width: 650px;
 }
 
-.contenedor-formulario {
+.contenedor-blanco {
   background-color: #ffffff;
 }
 
-.contenedor-formulario .form_header {
+.contenedor-transparente {
+  border: 2px solid #EAE6E8;
+}
+
+.contenedor-secundario .form_header {
   padding: 0.5em;
 }
 
-.contenedor-formulario form {
+.contenedor-secundario form {
   display: block;
   margin: 0 2em;
-  font-family: sans-serif;
 }
 
-.contenedor-formulario a {
+.contenedor-secundario label {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  margin-top: 1em;
+}
+
+.contenedor-secundario .requerido{
+  color: #49C498;
+}
+
+.contenedor-secundario a {
   color: #C5497B;
 }
 
-.contenedor-formulario input[type=text], .contenedor-formulario input[type=password], .contenedor-formulario input[type=submit] {
+.contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario input[type=submit], .contenedor-secundario select {
   width: 100%;
-  padding: 1.25em 0.5em;
+  padding: 1.25em 1em;
   margin: 1em auto;
   font-size: 1em;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
-.contenedor-formulario input[type=text], .contenedor-formulario input[type=password] {
+.contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario select {
   background-color: #F7F4F5;
   color: #212020;
   border: solid 1px #C5497B;
 }
 
-.contenedor-formulario input[type=submit] {
+.contenedor-secundario input[type=submit] {
   background-color: #C5497B;
   color: #ffffff;
   border: none;
-  border-radius: 2px;
 }
 
-.contenedor-formulario-transparente {
-  border: 2px solid #EAE6E8;
+.contenedor-secundario select {
+  width: 100%;
+  padding: 1.25em 1em;
+  margin: 1em auto;
+  font-size: 1em;
+  border-radius: 6px;
+  -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+@media (max-width: 500px) {
+  .contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario input[type=submit] {
+    padding: 0.75em 1em;
+    border-radius: 2px;
+  }
 }
 
 @media (max-width: 750px) {
-  .contenedor-formulario input[type=text], .contenedor-formulario input[type=password], .contenedor-formulario input[type=submit] {
+  .contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario input[type=submit] {
     padding: 1em 1em;
+    border-radius: 4px;
   }
 }

@@ -32,7 +32,7 @@ class Usuario extends CI_Controller
 
   public function vista_administracion()
   {
-    if ($_SESSION['es_Admin'] == 1) {
+    if (isset($_SESSION['es_Admin'])) {
       $data['titulo'] = 'Administracion';
       $data['listaUsuarios'] = $this->Usuario_model->buscar_usuario();
       $data['listaExposiciones'] = $this->Exposicion_model->buscar_exposicion();
@@ -74,7 +74,7 @@ class Usuario extends CI_Controller
 
   public function modificar_usuario_admin()
   {
-    if ($_SESSION['es_Admin'] == 1) {
+    if (isset($_SESSION['es_Admin'])) {
       $data = [
         'nick' => $this->input->post('nick'),
         'nombre' => $this->input->post('nombre'),
@@ -88,7 +88,7 @@ class Usuario extends CI_Controller
 
   public function eliminar_usuario()
   {
-    if ($_SESSION['es_Admin'] == 1) {
+    if (isset($_SESSION['es_Admin'])) {
       $data['nick'] = $this->input->post('nick');
       $this->Usuario_model->eliminar_usuario($data);
       $this->vista_administracion();

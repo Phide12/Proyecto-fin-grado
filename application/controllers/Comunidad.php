@@ -20,7 +20,7 @@ class Comunidad extends CI_Controller
  
   public function eliminar_obra()
   {
-    if ($_SESSION['es_Admin'] == 1) {
+    if (isset($_SESSION['es_Admin'])) {
       $data['id'] = $this->input->post('id');
       $resultado = $this->Multimedia_model->eliminar_imagen($this->input->post('ubicacion'));
         if ($resultado) {
