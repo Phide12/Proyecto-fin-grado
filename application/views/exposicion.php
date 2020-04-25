@@ -8,7 +8,7 @@
     </div>
 
     <!-- BARRA DE BUSQUEDA -->
-    <div>
+    <div class="contenedor-busqueda contenedor-transparente">
       <input type="text" id="buscar_exposicion">
       <button class="icono_buscar" id="boton_buscar">Buscar</button>
       <div id="panel_botones">
@@ -36,7 +36,7 @@
     <?php
     }
     ?>
-    <ol id="catalogo_exposiciones">
+    <ol class="contenedor-secundario contenedor-rejilla" id="catalogo_exposiciones">
 
     </ol>
 

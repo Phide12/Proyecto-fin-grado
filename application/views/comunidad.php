@@ -28,7 +28,7 @@
         </div>
         <form method="post" action="<?php echo base_url() . 'index.php/comunidad/insertar_obra'; ?>" enctype="multipart/form-data" onsubmit="imagenFormulario()">
           <label for="titulo">Título <span class="requerido">*</span></label>
-          <input type="text" name="titulo" required><br>
+          <input type="text" name="titulo" maxlength="35" required><br>
           <input type="hidden" name="datosImagen" id="datosImagen">
           <input type="submit" value="Subir">
         </form>
@@ -49,15 +49,15 @@
       <h3>Listado de obras</h3>
       <span class="ocultar_movil"> Obras creadas por la comunidad </span>
     </div>
-    <div class="contenedor-secundario contenedor-transparente contenedor-rejilla">
+    <div class="contenedor-secundario contenedor-blanco contenedor-rejilla">
       <?php
       foreach ($listaObras as $obra) : ?>
-        <div class="exposicion_tarjeta">
+        <div class="exposicion_tarjeta obra">
           <div class="exposicion_header">
             <h3 class="exposicion_header_titulo"><?php echo $obra['titulo']; ?></h3>
             <h3 class="exposicion_header_subtitulo"><?php echo $obra['autor']; ?></h3>
           </div>
-          <img src="<?php echo base_url() . $obra['ubicacion']; ?>" width="320" height="320" /><br>
+          <img src="<?php echo base_url() . $obra['ubicacion']; ?>" width="315" height="315" /><br>
           <?php if (isset($_SESSION['es_Admin'])) : ?>
             <form action="<?php echo base_url() . 'index.php/comunidad/eliminar_obra'; ?>" method="post">
               <input type="hidden" name="id" value="<?php echo $obra['id']; ?>">
@@ -66,7 +66,6 @@
             </form>
           <?php endif; ?>
         </div>
-        <hr>
     <?php
       endforeach;
       echo '</div>';
