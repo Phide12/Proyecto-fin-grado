@@ -12,7 +12,7 @@
 <body>
 
   <header class="header-main">
-    <a class="icon_menu" id="boton_abrir_menu">
+    <a class="icon_menu item-bt" id="boton_abrir_menu">
     </a>
     <h1 class="page_title">
       <?php echo $titulo; ?>
@@ -31,7 +31,7 @@
     <?php endif; ?>
 
     <nav id="sideNav" class="sidenav-main">
-      <a id="boton_cerrar_menu"></a>
+      <a class="item-bt" id="boton_cerrar_menu"></a>
       <div class="lista">
         <a href="<?php echo base_url() . 'index.php/exposicion/vista_general'; ?>">Inicio</a>
         <a href="<?php echo base_url() . 'index.php/comunidad/vista_comunidad'; ?>">Comunidad</a>

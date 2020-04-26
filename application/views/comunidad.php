@@ -20,10 +20,10 @@
             <div id="contenedor_colores"></div>
           </div>
           <div class="bloque_herramientas">
-            <div class="seleccionable icono_grande boton_grosor fino" id="1"></div>
-            <div class="seleccionable icono_grande boton_grosor medio" id="3"></div>
-            <div class="seleccionable icono_grande boton_grosor grueso" id="5"></div>
-            <div class="seleccionable icono_grande" id="boton_limpiar"></div>
+            <div class="seleccionable item-bt icono_grande boton_grosor fino" id="1"></div>
+            <div class="seleccionable item-bt icono_grande boton_grosor medio" id="3"></div>
+            <div class="seleccionable item-bt icono_grande boton_grosor grueso" id="5"></div>
+            <div class="seleccionable item-bt icono_grande" id="boton_limpiar"></div>
           </div>
         </div>
         <form method="post" action="<?php echo base_url() . 'index.php/comunidad/insertar_obra'; ?>" enctype="multipart/form-data" onsubmit="imagenFormulario()">
@@ -57,7 +57,7 @@
             <h3 class="exposicion_header_titulo"><?php echo $obra['titulo']; ?></h3>
             <h3 class="exposicion_header_subtitulo"><?php echo $obra['autor']; ?></h3>
           </div>
-          <img src="<?php echo base_url() . $obra['ubicacion']; ?>" width="315" height="315" /><br>
+          <img src="<?php echo base_url() . $obra['ubicacion']; ?>" /><br>
           <?php if (isset($_SESSION['es_Admin'])) : ?>
             <form action="<?php echo base_url() . 'index.php/comunidad/eliminar_obra'; ?>" method="post">
               <input type="hidden" name="id" value="<?php echo $obra['id']; ?>">

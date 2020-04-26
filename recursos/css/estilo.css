@@ -22,6 +22,10 @@ a {
   cursor: pointer;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 ul, ol {
   list-style: none;
 }
@@ -31,6 +35,11 @@ main {
   margin-top: 90px;
   width: 96%;
   min-height: 600px;
+}
+
+textarea {
+  resize: vertical;
+  font-family: sans-serif;
 }
 
 .ocultar_movil {
@@ -58,6 +67,38 @@ main {
   main {
     margin-top: 120px;
     width: 74%;
+  }
+}
+
+/* ICONOS EN FONDO */
+
+.item-bt {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  border-radius: 25%;
+  background-size: 40px;
+  transition: 0.36s ease-in-out;
+}
+main .item-bt:hover {
+  background-color: #EAE6E8;
+}
+
+@media (max-width: 800px) {
+  main .item-bt {
+    width: 2.5em;
+    height: 2.5em;
+    background-size: 35px;
+  }
+}
+@media (max-width: 550px) {
+  main .item-bt {
+    width: 2em;
+    height: 2em;
+    background-size: 30px;
   }
 }
 
@@ -89,15 +130,12 @@ main {
 
 .header-main .mensaje_user>a:hover {
   color: #AB426C;
-  text-decoration: underline;
 }
 
 .header-main a.icon_menu {
   width: 2em;
   height: 100%;
   background-image: url(iconos/menu_icon.svg);
-  background-size: cover;
-  background-position: center;
 }
 
 .header-main h1.page_title {
@@ -121,7 +159,8 @@ input[type=submit] {
 
 input[type=submit]:hover {
   transform: translateY(-6.4px);
-  box-shadow: 0 6.4px 0 0 #49C498
+  box-shadow: 0 6.4px 0 0 #49C498;
+  cursor: pointer;
 }
 
 /* NAVIGATION - SIDENAV DESPLEGABLE */
@@ -150,7 +189,6 @@ input[type=submit]:hover {
 
 .header-main .sidenav-main a:hover {
   color: #F7F4F5;
-  text-decoration: underline;
 }
 
 .sidenav-main a#boton_cerrar_menu {
@@ -160,9 +198,7 @@ input[type=submit]:hover {
   width: 80px;
   height: 80px;
   background-image: url(iconos/close_icon.svg);
-  background-position: center;
   background-size: 40px;
-  background-repeat: no-repeat;
 }
 
 #filtro_oscuro {
@@ -178,13 +214,15 @@ input[type=submit]:hover {
 
 .contenedor-secundario, .contenedor-busqueda {
   padding: 1em 0;
-  border-radius: 4px;
   margin: 2em auto;
+  border-bottom: 2px solid #EAE6E8;
 }
 
 .contenedor-secundario {
+  border-radius: 4px;
   text-align: center;
-  max-width: 650px;}
+  max-width: 650px;
+}
 
 .contenedor-blanco {
   background-color: #ffffff;
@@ -194,8 +232,12 @@ input[type=submit]:hover {
   border: 2px solid #EAE6E8;
 }
 
-.contenedor-secundario .form_header {
+.contenedor-secundario .form_header{
   padding: 0.5em;
+}
+.contenedor-texto {
+  padding: 0.5em 2em;
+  margin: 0.5em auto;
 }
 
 .contenedor-secundario .formulario {
@@ -213,11 +255,7 @@ input[type=submit]:hover {
   color: #49C498;
 }
 
-.contenedor-secundario a {
-  color: #C5497B;
-}
-
-.contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario input[type=submit], .contenedor-secundario select {
+.contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario input[type=submit], .contenedor-secundario select, .contenedor-secundario textarea {
   width: 100%;
   padding: 1.25em 1em;
   margin: 1em auto;
@@ -225,7 +263,7 @@ input[type=submit]:hover {
   border-radius: 6px;
 }
 
-.contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario select {
+.contenedor-secundario input[type=text], .contenedor-secundario input[type=password], .contenedor-secundario select, .contenedor-secundario textarea {
   background-color: #F7F4F5;
   color: #212020;
   border: solid 1px #C5497B;
@@ -264,19 +302,14 @@ input[type=submit]:hover {
 
 /* CONTENEDORES EN REJILLA - EXPOSICIONES Y COMUNIDAD */
 
-.obra {
-  max-width: 322px;
-}
-
 .contenedor-rejilla {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-grow: 0;
   flex-basis: content;
-  padding: 0;
+  padding: 1em 0;
   margin: 0;
-  padding-top: 1em;
   max-width: none;
 }
 
@@ -290,6 +323,7 @@ input[type=submit]:hover {
 
 .contenedor-rejilla .exposicion_tarjeta:hover {
   transform: translateY(-6px);
+  box-shadow: 0 3px 3.4px 0 #EAE6E8;
 }
 
 .exposicion_tarjeta .exposicion_header {
@@ -311,6 +345,7 @@ input[type=submit]:hover {
 .exposicion_tarjeta .exposicion_header .exposicion_header_subtitulo {
   text-align: right;
   font-size: 0.9em;
+  padding-bottom: 0.5em;
 }
 
 .exposicion_tarjeta input[type=submit] {
@@ -324,4 +359,108 @@ input[type=submit]:hover {
 
 .exposicion_tarjeta input[type=submit]:hover {
   color: #6A6466;
+}
+
+.obra {
+  max-width: 322px;
+}
+
+.obra img {
+  width: 315px;
+  height: 315px;
+}
+
+@media (max-width: 750px) {
+  .obra {
+    max-width: 370px;
+  }
+  .obra img {
+    width: 320px;
+    height: 320px;
+  }
+  .exposicion_tarjeta .exposicion_header {
+    font-size: 1.2em;
+  }
+}
+
+/* SECCION DE EXPOSICIONES */
+
+.panel_informacion {
+  display: flex;
+  max-width: none;
+  text-align: left;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+}
+
+.panel_informacion p {
+  height: max-content;
+  margin: auto 0;
+}
+
+.panel_informacion p.busqueda {
+  display: flex;
+  padding: 0 0.5em;
+  border: solid 2px #EAE6E8;
+  border-radius: 1.5em;
+  flex: 2;
+}
+
+#mostrar_resultados_busqueda {
+  font-weight: bold;
+  color: #C5497B;
+}
+
+#buscar_exposicion {
+  padding: 0.5em 1em;
+  border: none;
+  background-color: unset;
+  font-size: 1em;
+  flex: 2;
+}
+
+.contenedor-busqueda {
+  padding: 0.5em 0;
+  position: sticky;
+}
+
+@media (min-width: 500px) {
+  #buscar_exposicion {
+    font-size: 1.1em;
+  }
+}
+
+@media (min-width: 750px) {
+  #buscar_exposicion {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 950px) {
+  #buscar_exposicion {
+    font-size: 1.3em;
+  }
+}
+
+/* ICONOS EXPOSICIONES */
+
+.icono_buscar {
+  background-image: url(iconos/search_icon.svg);  
+  margin: auto 0;
+}
+
+.icono_resetear {
+  background-image: url(iconos/reset_icon.svg);
+}
+
+.icono_fav_on {
+  background-image: url(iconos/fav_on_icon.svg);  
+}
+
+.icono_fav_off {
+  background-image: url(iconos/fav_off_icon.svg);
+}
+
+.icono_aleatorio {
+  background-image: url(iconos/shuffle_icon.svg);  
 }

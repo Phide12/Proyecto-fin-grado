@@ -10,9 +10,14 @@ class Multimedia_model extends CI_Model
   {
     $rutaProyecto = $_SERVER['DOCUMENT_ROOT'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
     $extensionArchivo = strtolower(pathinfo($archivo['name'],PATHINFO_EXTENSION));
+    
+    //comprueba el tipo de archivo
+    if ($extensionArchivo != "jpg" && $extensionArchivo != "png" && $extensionArchivo != "jpeg") {
+      return false;
+    }
 
-    //comprueba el tamaño del archivo (el maximo permitido son 10mb)
-    if ($archivo["size"] > 10000000) {
+    //comprueba el tamaño del archivo (el maximo permitido son 3mb)
+    if ($archivo["size"] > 3000000) {
       return false;
     }
 

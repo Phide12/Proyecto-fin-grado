@@ -1,25 +1,30 @@
 <main>
   <?php if (isset($_SESSION['es_Admin'])) : ?>
-    <div>
+    <div class="contenedor-secundario contenedor-transparente">
       <a href="<?php echo base_url() . 'index.php/exposicion/vista_exposicion_creacion'; ?>">
-        <h2>Acceder a la herramienta para crear exposiciones</h2>
+        <h3>Herramienta para crear exposiciones</h3>
       </a>
     <?php endif; ?>
     </div>
 
     <!-- BARRA DE BUSQUEDA -->
-    <div class="contenedor-busqueda contenedor-transparente">
-      <input type="text" id="buscar_exposicion">
-      <button class="icono_buscar" id="boton_buscar">Buscar</button>
-      <div id="panel_botones">
-        <button class="icono_resetear" id="boton_resetear">Resetear Busqueda</button>
-        <button class="icono_random" id="boton_random">Random</button>
+    <div class="contenedor-busqueda panel_informacion">
+      <p class="busqueda">
+        <input type="text" id="buscar_exposicion" placeholder="Buscar Exposicion">
+        <a class="item-bt icono_buscar" id="boton_buscar"></a>
+      </p>
+      <p id="panel_botones">
+        <a class="item-bt icono_aleatorio" id="boton_random"></a>
+      </p>
+    </div>
 
-      </div>
-      <div id="panel_informacion">
-        <span>Resultados Totales: <span id="mostrar_resultados_totales"></span></span>
-        <span>Resultados Busqueda: <span id="mostrar_resultados_busqueda"></span></span>
-      </div>
+    <div class="contenedor-secundario contenedor-transparente panel_informacion">
+      <p>
+        <span id="mostrar_resultados_busqueda"></span>
+        de <span id="mostrar_resultados_totales"></span> Exposiciones
+        <span id="indicador_favoritos"></span>
+      </p>
+      <a class="item-bt icono_resetear" id="boton_resetear"></a>
     </div>
 
     <!-- LISTA DE EXPOSICIONES -->
@@ -36,7 +41,7 @@
     <?php
     }
     ?>
-    <ol class="contenedor-secundario contenedor-rejilla" id="catalogo_exposiciones">
+    <ol class="contenedor-secundario contenedor-blanco contenedor-rejilla" id="catalogo_exposiciones">
 
     </ol>
 

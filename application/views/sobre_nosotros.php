@@ -1,19 +1,34 @@
 <main>
-  <h2>Sobre nosotros</h2>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut tincidunt mauris, sit amet tincidunt quam. Praesent non mauris id nulla convallis pulvinar. Cras dictum, ex ut gravida congue, metus felis euismod nisl, et sagittis dui nibh a diam. Mauris vel nulla tellus. Aliquam pharetra orci nisi, non blandit est euismod id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eleifend risus a tempor semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt scelerisque fermentum. Sed rhoncus tortor eu neque imperdiet commodo. Pellentesque viverra lacus in arcu lacinia, in euismod libero facilisis. Cras tincidunt sapien eget tellus molestie sodales. Donec aliquam mi a mauris volutpat cursus at sit amet risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer sed aliquet massa.
+  <div class="contenedor-secundario contenedor-transparente">
+    <h3>Sobre nosotros</h3>
+    Conocenos y envianos tus sugerencias.
   </div>
-  <h3>Objetivos</h3>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut tincidunt mauris, sit amet tincidunt quam. Praesent non mauris id nulla convallis pulvinar. Cras dictum, ex ut gravida congue, metus felis euismod nisl, et sagittis dui nibh a diam. Mauris vel nulla tellus. Aliquam pharetra orci nisi, non blandit est euismod id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eleifend risus a tempor semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt scelerisque fermentum. Sed rhoncus tortor eu neque imperdiet commodo. Pellentesque viverra lacus in arcu lacinia, in euismod libero facilisis. Cras tincidunt sapien eget tellus molestie sodales. Donec aliquam mi a mauris volutpat cursus at sit amet risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer sed aliquet massa.
+
+  <div class="contenedor-secundario contenedor-texto contenedor-blanco">
+    <h3>Objetivos</h3> elit. Porro officiis obcaecati ut voluptatibus.
   </div>
-  <h3>Origenes</h3>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut tincidunt mauris, sit amet tincidunt quam. Praesent non mauris id nulla convallis pulvinar. Cras dictum, ex ut gravida congue, metus felis euismod nisl, et sagittis dui nibh a diam. Mauris vel nulla tellus. Aliquam pharetra orci nisi, non blandit est euismod id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eleifend risus a tempor semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt scelerisque fermentum. Sed rhoncus tortor eu neque imperdiet commodo. Pellentesque viverra lacus in arcu lacinia, in euismod libero facilisis. Cras tincidunt sapien eget tellus molestie sodales. Donec aliquam mi a mauris volutpat cursus at sit amet risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer sed aliquet massa.
+  <div class="contenedor-secundario contenedor-texto contenedor-blanco">
+    <h4>Nuestra historia</h4>
+    Dignissimos, nulla? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae quasi deserunt voluptates?
   </div>
-  <h3>Filosofia</h3>
-  <div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut tincidunt mauris, sit amet tincidunt quam. Praesent non mauris id nulla convallis pulvinar. Cras dictum, ex ut gravida congue, metus felis euismod nisl, et sagittis dui nibh a diam. Mauris vel nulla tellus. Aliquam pharetra orci nisi, non blandit est euismod id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi eleifend risus a tempor semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed tincidunt scelerisque fermentum. Sed rhoncus tortor eu neque imperdiet commodo. Pellentesque viverra lacus in arcu lacinia, in euismod libero facilisis. Cras tincidunt sapien eget tellus molestie sodales. Donec aliquam mi a mauris volutpat cursus at sit amet risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer sed aliquet massa.
+
+  <div class="contenedor-secundario contenedor-transparente">
+    <h3>Mensaje</h3>
+    Envianos tus sugerencias por correo.
+  </div>
+
+  <div class="contenedor-secundario contenedor-blanco">
+    <div class="formulario">
+      <form>
+        <label for="nombre">Nombre Completo <span class="requerido">*</span></label>
+        <input type="text" name="nombre" required><br>
+        <label for="email">E-mail <span class="requerido">*</span></label>
+        <input type="text" name="email" required><br>
+        <label for="contenido">Contenido <span class="requerido">*</span></label>
+        <textarea name="contenido" cols="30" rows="10"></textarea>
+        <input type="submit" value="Enviar">
+      </form>
+    </div>
   </div>
 
 </main>

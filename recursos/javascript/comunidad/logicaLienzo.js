@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', cargarLienzo);
-var lienzo = document.getElementById('lienzo');
-var lienzoCtx = lienzo.getContext('2d');
+window.addEventListener('resize', cargarLienzo);
 var coordenadas = document.getElementById('coordenadas');
 var colorActual = '#000000';
 var grosorLinea = 1;
@@ -8,6 +7,8 @@ var pintarActivo = false;
 
 
 function cargarLienzo() {
+  lienzo = document.getElementById('lienzo');
+  lienzoCtx = lienzo.getContext('2d');
   valorAnchura = window.getComputedStyle(lienzo).getPropertyValue("width")
   valorAltura = window.getComputedStyle(lienzo).getPropertyValue("height")
   lienzo.width = valorAnchura.substr(0, valorAnchura.length - 2);
@@ -22,7 +23,7 @@ function cargarLienzo() {
 }
 
 function comprobarTrazo(evento) {
-  
+
   posX = Math.round(evento.clientX - lienzo.offsetLeft + window.pageXOffset);
   posY = Math.round(evento.clientY - lienzo.offsetTop + window.pageYOffset);
   coordenadas.innerHTML = '(' + posX + ',' + posY + ')';
@@ -60,6 +61,7 @@ function limpiarLienzo() {
 
 function cargarSelectorColor() {
   contenedorColores = document.getElementById('contenedor_colores');
+  contenedorColores.innerHTML = '';
   arrayColores = [
     //primera fila
     '#ffffff',
@@ -114,7 +116,7 @@ function seleccionarColor(evento) {
 function seleccionarGrosor(evento) {
   grosorLinea = evento.target.id;
   mostrarGrosorActual();
-  
+
 }
 
 function mostrarGrosorActual() {

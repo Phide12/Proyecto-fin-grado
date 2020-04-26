@@ -12,8 +12,11 @@ function cargarLista() {
 
 function resetearBusqueda() {
   document.getElementById('buscar_exposicion').value = '';
-  botonFavoritos.innerHTML = 'Ver Favoritos';
-  mostrandoFavoritos = false;
+  if (typeof listaFavoritos !== 'undefined') {
+    mostrandoFavoritos = true;
+    cambiarModoFavoritos();
+  }
+  
   mostrarListadoExposiciones();
 }
 
@@ -94,9 +97,9 @@ function mostrarDatos() {
 }
 
 function cargarBotonFavoritos() {
-  botonFavoritos = document.createElement('button');
-  botonFavoritos.className = 'icono_favoritos';
-  botonFavoritos.innerHTML = 'Ver Favoritos';
+  botonFavoritos = document.createElement('a');
+  botonFavoritos.className = 'icono_fav_on item-bt';
+  indicadorFavoritos = document.getElementById('indicador_favoritos');
   document.getElementById('panel_botones').appendChild(botonFavoritos);
   botonFavoritos.addEventListener('click', cambiarModoFavoritos)
   mostrandoFavoritos = false;
@@ -104,10 +107,12 @@ function cargarBotonFavoritos() {
 
 function cambiarModoFavoritos() {
   if (mostrandoFavoritos) {
-    botonFavoritos.innerHTML = 'Ver Favoritos';
+    botonFavoritos.className = 'icono_fav_on item-bt';
+    indicadorFavoritos.innerHTML = '';
     mostrandoFavoritos = false;
   } else {
-    botonFavoritos.innerHTML = 'Ocultar Favoritos';
+    botonFavoritos.className = 'icono_fav_off item-bt';
+    indicadorFavoritos.innerHTML = ' - Favoritos';
     mostrandoFavoritos = true;
   }
   mostrarListadoExposiciones();
