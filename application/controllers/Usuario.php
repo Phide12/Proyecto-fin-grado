@@ -51,7 +51,7 @@ class Usuario extends CI_Controller
       $data['email'] = $this->input->post('email');
 
       $this->Usuario_model->modificar_usuario($data);
-      $this->vista_perfil();
+      redirect('usuario/vista_perfil');
     }
   }
 
@@ -67,7 +67,7 @@ class Usuario extends CI_Controller
         if ($this->encriptador->verificarHash($contrasenaAntigua, $resultado['contrasena'])) {
           $this->Usuario_model->cambiar_contrasena($_SESSION['nick'], $contrasenaNueva);
         }
-        $this->vista_perfil();
+        redirect('usuario/vista_perfil');
       }
     }
   }
@@ -82,7 +82,7 @@ class Usuario extends CI_Controller
         'email' => $this->input->post('email')
       ];
       $this->Usuario_model->modificar_usuario($data);
-      $this->vista_administracion();
+      redirect('usuario/vista_administracion');
     }
   }
 
@@ -91,7 +91,7 @@ class Usuario extends CI_Controller
     if (isset($_SESSION['es_Admin'])) {
       $data['nick'] = $this->input->post('nick');
       $this->Usuario_model->eliminar_usuario($data);
-      $this->vista_administracion();
+      redirect('usuario/vista_administracion');
     }
   }
 
@@ -106,8 +106,7 @@ class Usuario extends CI_Controller
       $data['es_Admin'] = 0;
       $this->Usuario_model->insertar_usuario($data);
     }
-
-    $this->vista_login();
+    redirect('usuario/vista_login');
   }
 
   public function comprobar_login()
@@ -124,16 +123,15 @@ class Usuario extends CI_Controller
       if ($comprobarUsuario['es_Admin'] == 1) {
         $_SESSION['es_Admin'] = 1;
       }
-      $this->vista_perfil();
+      redirect('usuario/vista_perfil');
     } else {
-      $this->vista_login();
+      redirect('usuario/vista_login');
     }
   }
 
   public function cerrar_sesion()
   {
-    unset($_SESSION['nick']);
-    unset($_SESSION['es_Admin']);
-    $this->vista_login();
+    session_destroy();
+    redirect('usuario/vista_login');
   }
 }

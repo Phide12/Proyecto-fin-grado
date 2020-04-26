@@ -1,19 +1,7 @@
 <main>
-  <div class="contenedor-secundario contenedor-transparente">
-    <h3>Sobre nosotros</h3>
-    Conocenos y envianos tus sugerencias.
-  </div>
-
-  <div class="contenedor-secundario contenedor-texto contenedor-blanco">
-    <h3>Objetivos</h3> elit. Porro officiis obcaecati ut voluptatibus.
-  </div>
-  <div class="contenedor-secundario contenedor-texto contenedor-blanco">
-    <h4>Nuestra historia</h4>
-    Dignissimos, nulla? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae quasi deserunt voluptates?
-  </div>
 
   <div class="contenedor-secundario contenedor-transparente">
-    <h3>Mensaje</h3>
+    <h3>Contáctanos</h3>
     Envianos tus sugerencias por correo.
   </div>
 

@@ -52,9 +52,9 @@
       <div class="formulario">
       <form method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_exposicion" value="<?php echo $id; ?>">
-        Seleccionar un archivo multimedia que se añadira a la exposicion <br>
+        <label for="contenido">Subir contenido de la exposición <span class="requerido">*</span> (3mb max - solo imágenes: png, jpg y jpeg)</label>
         <input type="file" name="contenido" required><br><br>
-        Comentario del recurso subido<br>
+        <label for="comentario">Comentario del archivo subido <span class="requerido">*</span></label>
         <textarea name="comentario" cols="30" rows="10" placeholder="texto/descripcion que acompañara al archivo multimedia en la exposicion..."></textarea><br>
         <input type="submit" name="subir" value="Subir" formaction="<?php echo base_url() . 'index.php/exposicion/subir_contenido_exposicion'; ?>">
       </form>

@@ -72,8 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-/* Contrasena host: @Biafx-C20$t!wkA */
-/* user bbdd: user*/
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost;port=3306;dbname=proyecto_JorgeM',
 	'hostname' => 'localhost',

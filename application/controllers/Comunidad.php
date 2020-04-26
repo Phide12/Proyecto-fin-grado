@@ -15,7 +15,6 @@ class Comunidad extends CI_Controller
       $data = $this->Comunidad_model->buscar_obra();
       $this->load->view('cabecera', ['titulo' => 'Comunidad']);
       $this->load->view('comunidad', $data);
-    
   }
  
   public function eliminar_obra()
@@ -26,9 +25,8 @@ class Comunidad extends CI_Controller
         if ($resultado) {
           $this->Comunidad_model->eliminar_obra($data);
         }
-      
     }
-    $this->vista_comunidad();
+    redirect('comunidad/vista_comunidad');
   }
 
   public function insertar_obra()
@@ -44,9 +42,6 @@ class Comunidad extends CI_Controller
         }
       }      
     }
-
-    $this->vista_comunidad();
-  }
-
-  
+    redirect('comunidad/vista_comunidad');
+  }  
 }

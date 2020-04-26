@@ -21,7 +21,7 @@
     <div class="contenedor-secundario contenedor-transparente panel_informacion">
       <p>
         <span id="mostrar_resultados_busqueda"></span>
-        de <span id="mostrar_resultados_totales"></span> Exposiciones
+        de <span id="mostrar_resultados_totales"></span> exposiciones
         <span id="indicador_favoritos"></span>
       </p>
       <a class="item-bt icono_resetear" id="boton_resetear"></a>
