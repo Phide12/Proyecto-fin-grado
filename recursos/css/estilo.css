@@ -14,6 +14,7 @@ body {
   transition: 0.5s;
   overflow-x: hidden;
   width: 100%;
+  z-index: 5;
 }
 
 a {
@@ -40,6 +41,10 @@ main {
 textarea {
   resize: vertical;
   font-family: sans-serif;
+}
+
+img {
+  display: inline-block;
 }
 
 .ocultar_movil {
@@ -115,7 +120,7 @@ main .item-bt:hover {
   align-items: center;
   padding: 0.5em;
   border: solid 1px #EAE6E8;
-  z-index: 5;
+  z-index: 10;
 }
 
 .header-main .mensaje_user {
@@ -205,9 +210,10 @@ input[type=submit]:hover {
   display: none;
   display: block;
   background-color: rgba(0, 0, 0, 0.64);
-  position: absolute;
+  position: fixed;
+  top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 15;
 }
 
 /* MAIN - CONTENEDORES GENERALES */
@@ -215,7 +221,6 @@ input[type=submit]:hover {
 .contenedor-secundario, .contenedor-busqueda {
   padding: 1em 0;
   margin: 2em auto;
-  border-bottom: 2px solid #EAE6E8;
 }
 
 .contenedor-secundario {
@@ -321,6 +326,11 @@ input[type=submit]:hover {
   transition: 0.36s ease-in-out;
 }
 
+.contenedor-rejilla .exposicion_tarjeta img{
+  max-width: 400px;
+  max-height: 400px;
+}
+
 .contenedor-rejilla .exposicion_tarjeta:hover {
   transform: translateY(-6px);
   box-shadow: 0 3px 3.4px 0 #EAE6E8;
@@ -361,6 +371,10 @@ input[type=submit]:hover {
   color: #6A6466;
 }
 
+.imagen_portada {
+  width: 100%;
+}
+
 .obra {
   max-width: 322px;
 }
@@ -381,6 +395,12 @@ input[type=submit]:hover {
   .exposicion_tarjeta .exposicion_header {
     font-size: 1.2em;
   }
+}
+
+.texto_tarjeta_exposicion {
+  height: auto;
+  padding: 1em 0.5em;
+  line-break: anywhere;
 }
 
 /* SECCION DE EXPOSICIONES */
@@ -422,6 +442,17 @@ input[type=submit]:hover {
 .contenedor-busqueda {
   padding: 0.5em 0;
   position: sticky;
+  border-bottom: 2px solid #EAE6E8;
+}
+
+.valoracion {
+  text-align: left;
+  margin: 0.5em auto;
+  padding: 0.75em 0.5em;
+}
+
+.valoracion > *{
+  padding: 0.25em 1em;
 }
 
 @media (min-width: 500px) {
@@ -463,4 +494,13 @@ input[type=submit]:hover {
 
 .icono_aleatorio {
   background-image: url(iconos/shuffle_icon.svg);  
+}
+
+/* Dimension minima imagen */
+
+@media (max-width: 400px) {
+  .contenedor-rejilla .exposicion_tarjeta img {
+    max-width: 320px;
+    max-height: 320px;
+  }
 }

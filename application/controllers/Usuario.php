@@ -67,9 +67,10 @@ class Usuario extends CI_Controller
         if ($this->encriptador->verificarHash($contrasenaAntigua, $resultado['contrasena'])) {
           $this->Usuario_model->cambiar_contrasena($_SESSION['nick'], $contrasenaNueva);
         }
-        redirect('usuario/vista_perfil');
       }
+      redirect('usuario/vista_perfil');
     }
+    redirect('usuario/vista_login');
   }
 
   public function modificar_usuario_admin()

@@ -16,14 +16,14 @@ class Exposicion extends CI_Controller
     if (isset($_SESSION['id'])) {
       $data['listaFavoritos'] = $this->Exposicion_model->buscar_favoritos_por_usuario($_SESSION['id']);
     }
-    $this->load->view('cabecera', ['titulo' => 'Exposicion']);
+    $this->load->view('cabecera', ['titulo' => 'Exposición']);
     $this->load->view('exposicion', $data);
   }
 
   public function vista_exposicion_creacion($error = false)
   {
     if (isset($_SESSION['es_Admin'])) {
-      $this->load->view('cabecera', ['titulo' => 'Exposicion']);
+      $this->load->view('cabecera', ['titulo' => 'Exposición']);
       $this->load->view('exposicion_creacion', $error);
     } else {
       redirect('exposicion/vista_general');
@@ -40,7 +40,7 @@ class Exposicion extends CI_Controller
         $data['estadoFavoritos'] = $this->estaEnFavoritos($_SESSION['id'], $_GET['id']);
       }
       $this->Exposicion_model->incrementar_visitas($_GET['id'], $data['num_visitas']);
-      $this->load->view('cabecera', ['titulo' => 'Exposicion']);
+      $this->load->view('cabecera', ['titulo' => 'Exposición']);
       $this->load->view('exposicion_individual', $data);
     } else {
       redirect('exposicion/vista_general');

@@ -16,7 +16,7 @@ function resetearBusqueda() {
     mostrandoFavoritos = true;
     cambiarModoFavoritos();
   }
-  
+
   mostrarListadoExposiciones();
 }
 
@@ -75,8 +75,20 @@ function listarExposicion(exposicion) {
   headerExposicion.appendChild(titulo);
   headerExposicion.appendChild(subtitulo);
 
-  let imagenPortada = new Image(360, 240);    /* imagen portada */
+  let imagenPortada = new Image();    /* imagen portada */
   imagenPortada.src = rutaServidor + exposicion.portada;
+  let dimensionMaxima = 400;
+  if (imagenPortada.width > dimensionMaxima || imagenPortada.height > dimensionMaxima) {
+    if (imagenPortada.width > imagenPortada.height) {
+      let escalado = imagenPortada.width / dimensionMaxima;
+      imagenPortada.width = dimensionMaxima;
+      imagenPortada.height /= escalado;
+    } else {
+      let escalado = imagenPortada.height / dimensionMaxima;
+      imagenPortada.height = dimensionMaxima;
+      imagenPortada.width /= escalado;
+    }
+  }
 
   let tarjetaExposicion = document.createElement('li');   /* contenedor */
   tarjetaExposicion.className = 'exposicion_tarjeta';
@@ -94,6 +106,11 @@ function listarExposicion(exposicion) {
 function mostrarDatos() {
   document.getElementById('mostrar_resultados_totales').innerHTML = listaExposiciones.length;
   document.getElementById('mostrar_resultados_busqueda').innerHTML = numeroResultadosBusqueda;
+  if (numeroResultadosBusqueda == 0) {
+    let textoResultados = document.createElement('p');
+    textoResultados.innerHTML = 'No se han encontrado resultados';
+    document.getElementById('catalogo_exposiciones').appendChild(textoResultados);
+  }
 }
 
 function cargarBotonFavoritos() {
@@ -120,7 +137,7 @@ function cambiarModoFavoritos() {
 
 function redirigirExposicionRandom() {
   if (typeof listaExposiciones !== 'undefined') {
-      let id_exposicion = listaExposiciones[Math.floor(Math.random() * listaExposiciones.length)].id;
-      window.location.replace(rutaServidor + 'index.php/exposicion/vista_exposicion_individual?id=' + id_exposicion);
+    let id_exposicion = listaExposiciones[Math.floor(Math.random() * listaExposiciones.length)].id;
+    window.location.replace(rutaServidor + 'index.php/exposicion/vista_exposicion_individual?id=' + id_exposicion);
   }
 }
