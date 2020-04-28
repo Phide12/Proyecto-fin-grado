@@ -1,3 +1,20 @@
+/* FUENTES */
+
+/* roboto */
+@font-face {
+  font-family: 'roboto';
+  src: url('fuentes/Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('fuentes/Roboto-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
 /* GENERAL PARA TODA LA WEB */
 
 * {
@@ -7,7 +24,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'roboto', sans-serif;
   background: #F7F4F5;
   color: #212020;
   position: absolute;
@@ -40,7 +57,10 @@ main {
 
 textarea {
   resize: vertical;
-  font-family: sans-serif;
+  font-family: unset;
+}
+input {
+  font-family: unset;
 }
 
 img {
@@ -88,6 +108,7 @@ img {
   background-size: 40px;
   transition: 0.36s ease-in-out;
 }
+
 main .item-bt:hover {
   background-color: #EAE6E8;
 }
@@ -99,6 +120,7 @@ main .item-bt:hover {
     background-size: 35px;
   }
 }
+
 @media (max-width: 550px) {
   main .item-bt {
     width: 2em;
@@ -237,9 +259,10 @@ input[type=submit]:hover {
   border: 2px solid #EAE6E8;
 }
 
-.contenedor-secundario .form_header{
+.contenedor-secundario .form_header {
   padding: 0.5em;
 }
+
 .contenedor-texto {
   padding: 0.5em 2em;
   margin: 0.5em auto;
@@ -326,7 +349,7 @@ input[type=submit]:hover {
   transition: 0.36s ease-in-out;
 }
 
-.contenedor-rejilla .exposicion_tarjeta img{
+.contenedor-rejilla .exposicion_tarjeta img {
   max-width: 400px;
   max-height: 400px;
 }
@@ -451,7 +474,7 @@ input[type=submit]:hover {
   padding: 0.75em 0.5em;
 }
 
-.valoracion > *{
+.valoracion>* {
   padding: 0.25em 1em;
 }
 
@@ -476,7 +499,7 @@ input[type=submit]:hover {
 /* ICONOS EXPOSICIONES */
 
 .icono_buscar {
-  background-image: url(iconos/search_icon.svg);  
+  background-image: url(iconos/search_icon.svg);
   margin: auto 0;
 }
 
@@ -485,7 +508,7 @@ input[type=submit]:hover {
 }
 
 .icono_fav_on {
-  background-image: url(iconos/fav_on_icon.svg);  
+  background-image: url(iconos/fav_on_icon.svg);
 }
 
 .icono_fav_off {
@@ -493,7 +516,7 @@ input[type=submit]:hover {
 }
 
 .icono_aleatorio {
-  background-image: url(iconos/shuffle_icon.svg);  
+  background-image: url(iconos/shuffle_icon.svg);
 }
 
 /* Dimension minima imagen */

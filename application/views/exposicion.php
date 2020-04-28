@@ -10,7 +10,7 @@
     <!-- BARRA DE BUSQUEDA -->
     <div class="contenedor-busqueda panel_informacion">
       <p class="busqueda">
-        <input type="text" id="buscar_exposicion" placeholder="Buscar Exposicion">
+        <input type="text" id="buscar_exposicion" placeholder="Buscar Exposición">
         <a class="item-bt icono_buscar" id="boton_buscar"></a>
       </p>
       <p id="panel_botones">

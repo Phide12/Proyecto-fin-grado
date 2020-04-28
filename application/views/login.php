@@ -3,7 +3,7 @@
   <div class="contenedor-secundario contenedor-transparente">
     ¿No estas registrado todavia?
     <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">
-      <b>Registrate ahora</b>
+      <b>Regístrate ahora</b>
     </a>
   </div>
 
