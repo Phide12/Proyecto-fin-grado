@@ -53,4 +53,4 @@ $route['exposicion'] = 'exposicion';
 $route['usuario'] = 'usuario';
 $route['comunidad'] = 'comunidad';
 $route['otros'] = 'otros';
-$route['default_controller'] = 'usuario/vista_login';
+$route['default_controller'] = 'exposicion/vista_general';

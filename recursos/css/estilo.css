@@ -1,6 +1,7 @@
 /* FUENTES */
 
 /* roboto */
+
 @font-face {
   font-family: 'roboto';
   src: url('fuentes/Roboto-Regular.ttf');
@@ -24,14 +25,34 @@
 }
 
 body {
-  font-family: 'roboto', sans-serif;
-  background: #F7F4F5;
-  color: #212020;
   position: absolute;
   transition: 0.5s;
+  font-family: 'roboto', sans-serif;
+  background-color: #f7f4f5;
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23eae6e8' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
   overflow-x: hidden;
+  background-attachment: fixed;
   width: 100%;
   z-index: 5;
+}
+
+@media (min-width: 520px) {
+  body {
+    /* animacion del fondo */
+    animation: animFondo linear 16.4s infinite;
+    animation-direction: alternate;
+  }
+}
+
+/* animacion del fondo */
+
+@keyframes animFondo {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 25vmax 25vmax;
+  }
 }
 
 a {
@@ -59,8 +80,10 @@ textarea {
   resize: vertical;
   font-family: unset;
 }
+
 input {
   font-family: unset;
+  transition: 0.36s ease-in-out;
 }
 
 img {
@@ -110,6 +133,10 @@ img {
 }
 
 main .item-bt:hover {
+  background-color: #EAE6E8;
+}
+
+a.icon_menu:hover {
   background-color: #EAE6E8;
 }
 
@@ -178,10 +205,6 @@ main .item-bt:hover {
   .header-main h1.page_title {
     text-align: left;
   }
-}
-
-input[type=submit] {
-  transition: 0.36s ease-in-out;
 }
 
 input[type=submit]:hover {
@@ -257,6 +280,7 @@ input[type=submit]:hover {
 
 .contenedor-transparente {
   border: 2px solid #EAE6E8;
+  background-color: #F7F4F5;
 }
 
 .contenedor-secundario .form_header {
@@ -295,6 +319,11 @@ input[type=submit]:hover {
   background-color: #F7F4F5;
   color: #212020;
   border: solid 1px #C5497B;
+}
+
+.contenedor-secundario input[type=text]:focus, .contenedor-secundario input[type=password]:focus, .contenedor-secundario select:focus, .contenedor-secundario textarea:focus {
+  background-color: #FFFEFE;
+  border-color: #49C498;
 }
 
 .contenedor-secundario input[type=submit] {
@@ -445,6 +474,7 @@ input[type=submit]:hover {
   display: flex;
   padding: 0 0.5em;
   border: solid 2px #EAE6E8;
+  background-color: #f7f4f5;
   border-radius: 1.5em;
   flex: 2;
 }
