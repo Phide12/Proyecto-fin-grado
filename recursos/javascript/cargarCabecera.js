@@ -10,16 +10,19 @@ function cargarCabecera() {
   document.getElementById('boton_cerrar_menu').addEventListener('click', cerrarMenu);
   anchura = window.getComputedStyle(sideNav).getPropertyValue('width');
   cerrarMenu();
+  filtroOscuro.style.transition = '0.5s'
 }
 
 function abrirMenu() {
   sideNav.style.left = '0';
   document.body.style.left = anchura;
-  filtroOscuro.style.display = 'block';
+  filtroOscuro.style.opacity = 1;
+  filtroOscuro.style.pointerEvents = 'auto';
 }
 function cerrarMenu() {
   sideNav.style.left = '-' + anchura;
   document.body.style.left = '0';
-  filtroOscuro.style.display = 'none';
+  filtroOscuro.style.opacity = 0;  
+  filtroOscuro.style.pointerEvents = 'none';
 
 }

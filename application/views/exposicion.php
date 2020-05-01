@@ -1,4 +1,12 @@
 <main>
+
+  <div class="hero-image hero_exposiciones">
+    <div class="hero-text">
+      <h1 style="font-size:50px">Exposiciones online</h1>
+      <p>Descubre nuestras ultimas exposiciones</p>
+    </div>
+  </div>
+
   <?php if (isset($_SESSION['es_Admin'])) : ?>
     <div class="contenedor-secundario contenedor-transparente">
       <a href="<?php echo base_url() . 'index.php/exposicion/vista_exposicion_creacion'; ?>">
@@ -17,6 +25,7 @@
         <a class="item-bt icono_aleatorio" id="boton_random"></a>
       </p>
     </div>
+    <hr class="separador_busqueda"/>
 
     <div class="contenedor-secundario contenedor-transparente panel_informacion">
       <p>
@@ -38,14 +47,13 @@
       echo '</script>';
     ?>
       <script src="<?php echo base_url(); ?>recursos/javascript/exposicion/listarExposiciones.js"></script>
-    <?php
-    }
-    ?>
+    <?php } ?>
     <ol class="contenedor-secundario contenedor-blanco contenedor-rejilla" id="catalogo_exposiciones">
 
     </ol>
 
 </main>
-</body>
 
+
+</body>
 </html>
