@@ -124,7 +124,7 @@ class Usuario extends CI_Controller
       if ($comprobarUsuario['es_Admin'] == 1) {
         $_SESSION['es_Admin'] = 1;
       }
-      redirect('usuario/vista_perfil');
+      redirect('exposicion/vista_general');
     } else {
       redirect('usuario/vista_login');
     }

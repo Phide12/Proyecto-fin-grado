@@ -8,7 +8,6 @@ canvas {
 }
 
 .contenedor_herramientas {
-  overflow: auto;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -41,8 +40,13 @@ canvas {
 }
 
 .seleccionable:hover {
-  border: solid 1px black;
+  border: solid 1px #212020;
 }
+
+#color_actual {
+    width: 275px;
+    margin-right: 0;
+  }
 
 @media (max-width: 430px) {
   canvas {
@@ -52,10 +56,6 @@ canvas {
 }
 
 @media (max-width: 550px) {
-  #color_actual {
-    width: 275px;
-    margin-right: 0;
-  }
   .bloque_herramientas {
     padding: 0.5em 0;
   }

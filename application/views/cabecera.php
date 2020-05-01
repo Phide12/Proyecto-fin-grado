@@ -46,6 +46,11 @@
           <a href="<?php echo base_url() . 'index.php/usuario/vista_registro'; ?>">Registrarse</a>
         <?php endif; ?>
       </div>
+      <ul class="info_autor">
+        <li><h4>Otros trabajos</h4></li>
+        <a href="https://phide12.github.io/PlantillaWeb/"><li>Plantilla Web</li></a>
+        <a href="https://phide12.github.io/calculadora_JS/"><li>Calculadora</li></a>
+      </ul>
     </nav>
   </header>
   <div id="filtro_oscuro"></div>

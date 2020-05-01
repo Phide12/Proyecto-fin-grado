@@ -45,6 +45,7 @@ body {
 }
 
 /* animacion del fondo */
+
 @keyframes mover-fondo {
   0% {
     background-position: 0 0;
@@ -55,7 +56,7 @@ body {
 }
 
 a {
-  color: #212020;
+  color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
@@ -73,8 +74,7 @@ ul, ol {
 }
 
 main {
-  margin: auto;
-  margin-top: 90px;
+  margin: 90px auto;
   width: 96%;
   min-height: 600px;
   display: block;
@@ -100,14 +100,14 @@ img {
 
 @media (min-width: 500px) {
   main {
-    margin-top: 100px;
+    margin: 100px auto;
     width: 88.6%;
   }
 }
 
 @media (min-width: 750px) {
   main {
-    margin-top: 110px;
+    margin: 110px auto;
     width: 81.3%;
   }
   .ocultar_movil {
@@ -117,7 +117,7 @@ img {
 
 @media (min-width: 1080px) {
   main {
-    margin-top: 120px;
+    margin: 120px auto;
     width: 74%;
   }
 }
@@ -174,7 +174,8 @@ a.icon_menu:hover {
   padding: 0.5em;
   border: solid 1px #EAE6E8;
   z-index: 10;
-  box-shadow: 0px 1.6px 6.4px 0px rgba(33,32,32,0.64);}
+  box-shadow: 0px 1.6px 6.4px 0px rgba(33, 32, 32, 0.64);
+}
 
 .header-main .mensaje_user {
   display: none;
@@ -234,7 +235,7 @@ input[type=submit]:hover {
 }
 
 .sidenav-main .lista a {
-  padding: 1em 2em;
+  padding: 1.25rem 2.5rem;
   display: block;
   color: #ffffff;
   font-size: 1.25em;
@@ -255,6 +256,36 @@ input[type=submit]:hover {
   background-size: 40px;
 }
 
+@media (max-height: 640px) {
+  .sidenav-main .lista a {
+    padding: 0.75rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .info_autor {
+    display: none;
+  }
+}
+
+.sidenav-main .info_autor {
+  color: white;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  
+
+}
+.sidenav-main .info_autor li{
+  padding: 0.75rem 2.5rem;
+}
+
+.sidenav-main .info_autor a{
+  display: block;
+  border-top: solid 1px #AB426C;
+}
+
 #filtro_oscuro {
   display: block;
   opacity: 0;
@@ -265,20 +296,25 @@ input[type=submit]:hover {
   z-index: 15;
 }
 
-
 /* MAIN - hero image */
 
-.hero_exposiciones{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/nicolas-olivares-G7_Um0dk-9Y-unsplash.jpg");
+.hero_exposiciones {
+  background-image: url("../img/nicolas-olivares-G7_Um0dk-9Y-unsplash.jpg");
+}
+
+.hero_comunidad {
+  background-image: url("../img/kelli-tungay-Sj0nhVIb4eY-unsplash.jpg");
 }
 
 .hero-image {
   height: 64vh;
+  min-height: 400px;
   border-radius: 4px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .hero-text {
@@ -290,20 +326,35 @@ input[type=submit]:hover {
   color: white;
 }
 
-.hero-text button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
+/* MAIN - imagen polygon background */
+.polygon_comunidad {
+  background-image: url(../img/daniele-levis-pelusi-ENdi1TkM1QQ-unsplash.jpg);
 }
 
-.hero-text button:hover {
-  background-color: #555;
-  color: white;
+.polygon-wrapper {
+  background-color: #FFFFFF;
+  height: 36vh;
+  min-height: 300px;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.polygon-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  clip-path: ellipse(64% 100% at 100% 80%);
+}
+
+.polygon-text {
+  position: absolute;
+  z-index: 5;
+  padding: 1.5rem;
+  max-width: 400px;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: #212020;
 }
 
 /* MAIN - CONTENEDORES GENERALES */
@@ -442,7 +493,8 @@ input[type=submit]:hover {
 @keyframes rotacion-color {
   from {
     filter: hue-rotate(0turn);
-  } to {
+  }
+  to {
     filter: hue-rotate(1turn);
   }
 }
@@ -459,12 +511,10 @@ input[type=submit]:hover {
   transition: 0.64s;
 }
 
-
 .exposicion_tarjeta:hover .exposicion_header, a:hover .exposicion_tarjeta .exposicion_header {
   background-color: #C5497B;
   color: #ffffff;
 }
-
 
 .exposicion_tarjeta .exposicion_header h3 {
   font-weight: normal;
@@ -551,6 +601,15 @@ input[type=submit]:hover {
   flex: 2;
 }
 
+#buscar_exposicion:focus::placeholder {
+  color: #6A6466;
+}
+
+#buscar_exposicion:focus:parent {
+  border-color: #000000;
+}
+
+
 .contenedor-busqueda {
   padding: 0.5em 0;
   position: sticky;
@@ -568,7 +627,7 @@ input[type=submit]:hover {
   flex: auto;
 }
 
-.separador_busqueda{
+.separador_busqueda {
   border: none;
   border-top: 2px solid #EAE6E8;
 }

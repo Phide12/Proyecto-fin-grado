@@ -3,7 +3,7 @@
   <div class="hero-image hero_exposiciones">
     <div class="hero-text">
       <h1 style="font-size:50px">Exposiciones online</h1>
-      <p>Descubre nuestras ultimas exposiciones</p>
+      <p>Descubre nuestras ultimas exposiciones.</p>
     </div>
   </div>
 
