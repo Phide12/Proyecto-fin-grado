@@ -139,24 +139,27 @@ class Exposicion_model extends CI_Model
 		return -1;
 	}
 
-	function buscar_valoracion_por_usuario($id_usuario)
+	function buscar_valoracion_anterior($id_usuario, $id_exposicion)
 	{
-		if (isset($id_usuario)) {
-			$this->db->select('id');
-			$query = $this->db->get_where('valoracion', ['id_usuario' => $id_usuario]);
-			return $query->row_array();
+		if (isset($_SESSION['nick'])) {
+			if (isset($id_usuario) && isset($id_exposicion)) {
+				$this->db->select('id');
+				$query = $this->db->get_where('valoracion', ['id_usuario' => $id_usuario, 'id_exposicion' => $id_exposicion]);
+				return $query->row_array();
+			}
 		}
-		return -1;
+		return null;
 	}
 
 	function buscar_favoritos_por_usuario($id_usuario)
 	{
-		if (isset($id_usuario)) {
-			$this->db->select('id_exposicion');
-			$query = $this->db->get_where('favoritos', ['id_usuario' => $id_usuario]);
-			return $query->result_array();
-		} else {
-			return null;
+		if (isset($_SESSION['nick'])) {
+			if (isset($id_usuario)) {
+				$this->db->select('id_exposicion');
+				$query = $this->db->get_where('favoritos', ['id_usuario' => $id_usuario]);
+				return $query->result_array();
+			}
 		}
+		return null;
 	}
 }

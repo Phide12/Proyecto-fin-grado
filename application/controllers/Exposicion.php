@@ -128,7 +128,7 @@ class Exposicion extends CI_Controller
   {
     if (isset($_SESSION['id'])) {
       /* si existe alguna valoracion previa en la misma exposicion se elimina */
-      $resultado = $this->Exposicion_model->buscar_valoracion_por_usuario($_SESSION['id']);
+      $resultado = $this->Exposicion_model->buscar_valoracion_anterior($_SESSION['id'], $_POST['id_exposicion']);
       if ($resultado != null) {
         $this->Exposicion_model->eliminar_valoracion($resultado);
       }
