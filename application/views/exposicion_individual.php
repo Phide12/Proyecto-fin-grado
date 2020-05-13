@@ -58,7 +58,7 @@
     <div class="contenedor-secundario contenedor-transparente ">
       <h3> Contenido </h3>
     </div>
-    <div class="contenedor-secundario contenedor-blanco contenedor-rejilla" id="lista_contenido">
+    <div class="contenedor-secundario contenedor-rejilla" id="lista_contenido">
       <script>
         let listaContenidos = <?php echo json_encode($listaContenidos); ?>;
 

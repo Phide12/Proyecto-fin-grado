@@ -48,7 +48,7 @@
     ?>
       <script src="<?php echo base_url(); ?>recursos/javascript/exposicion/listarExposiciones.js"></script>
     <?php } ?>
-    <ol class="contenedor-secundario contenedor-blanco contenedor-rejilla" id="catalogo_exposiciones">
+    <ol class="contenedor-secundario contenedor-rejilla" id="catalogo_exposiciones">
 
     </ol>
 

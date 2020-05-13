@@ -64,7 +64,7 @@
       </div>
       <div class="polygon-image polygon_comunidad"></div>
     </div>
-    <div class="contenedor-secundario contenedor-blanco contenedor-rejilla">
+    <div class="contenedor-secundario contenedor-rejilla">
       <?php
       foreach ($listaObras as $obra) : ?>
         <div class="exposicion_tarjeta obra">
