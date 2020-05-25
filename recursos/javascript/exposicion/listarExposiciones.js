@@ -4,7 +4,7 @@ function cargarLista() {
   if (typeof listaFavoritos !== 'undefined') {
     cargarBotonFavoritos();
   }
-  document.getElementById('boton_buscar').addEventListener('click', mostrarListadoExposiciones);
+  document.getElementById('buscar_exposicion').addEventListener('keyup', mostrarListadoExposiciones);
   document.getElementById('boton_resetear').addEventListener('click', resetearBusqueda);
   document.getElementById('boton_random').addEventListener('click', redirigirExposicionRandom);
   mostrarListadoExposiciones();
