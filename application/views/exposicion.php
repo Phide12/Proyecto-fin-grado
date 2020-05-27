@@ -5,7 +5,7 @@
       <br>
       <h3>Descubre nuestras ultimas exposiciones.</h3>
       <br>
-      <a class="btn btn-principal" id="btn-ver-ahora">Ver ahora</a>
+      <a class="btn btn-principal" href="#exposiciones">Ver ahora</a>
       <br>
     </div>
   </div>
@@ -31,7 +31,7 @@
           Siempre encontraras alguna exposición para ti, tambien podras registrarte y guardar facilmente las exposiciones que te gusten en favoritos
           para volver a visitarlas
           <br><br>
-          <a class="btn btn-principal"> Ver Exposiciones</a>
+          <a class="btn btn-principal" href="#exposiciones"> Ver Exposiciones</a>
         </div>
       </div>
       <div class="img-seccion img-seccion-exposicion" style="background-image: url(<?= base_url() . 'recursos/img/seccion/ross-sneddon-TG2L70rowAU-unsplash.jpg'; ?>)"></div>
@@ -42,21 +42,21 @@
     <div class="clip-end">
     </div>
   </div>
-  
+
+  <a name="exposiciones" class="anchor"></a>
   <div class="hero-img banner-seccion" style="background-image: url(<?= base_url() . 'recursos/img/yann-allegre-q9XgBcv1pA8-unsplash.jpg'; ?>)">
     <div class="banner-content">
       <div class="banner-text">
         <h1>Cloud Gallery<h1>
-            <h2>Listado de Exposiciones</h2>
+            <h2>Exposiciones Online</h2>
             <?php if (isset($_SESSION['es_Admin'])) : ?>
-              <a class="btn btn-secundario" href="<?= base_url() . 'index.php/exposicion/vista_exposicion_creacion'; ?>">
+              <a class="btn btn-principal" href="<?= base_url() . 'index.php/exposicion/vista_exposicion_creacion'; ?>">
                 Herramienta para crear exposiciones
               </a>
             <?php endif; ?>
       </div>
     </div>
   </div>
-
   <!-- BARRA DE BUSQUEDA -->
   <div class="contenedor-busqueda container">
     <span class="busqueda">
@@ -91,10 +91,10 @@
   ?>
     <script src="<?= base_url(); ?>recursos/javascript/exposicion/listarExposiciones.js"></script>
   <?php } ?>
-  <ol class="contenedor-secundario contenedor-rejilla" id="catalogo_exposiciones">
-
-  </ol>
-
+  <div class="container">
+    <ol class="contenedor-secundario contenedor-rejilla" id="catalogo_exposiciones">
+    </ol>
+  </div>
 
 </main>
 

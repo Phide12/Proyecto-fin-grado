@@ -11,13 +11,13 @@ class Usuario extends CI_Controller
 
   public function vista_login()
   {
-    $this->load->view('cabecera', ['titulo' => 'Inicio']);
+    $this->load->view('cabecera', ['titulo' => 'Iniciar Sesión']);
     $this->load->view('login');
   }
 
   public function vista_registro()
   {
-    $this->load->view('cabecera', ['titulo' => 'Inicio']);
+    $this->load->view('cabecera', ['titulo' => 'Crear Cuenta']);
     $this->load->view('registro');
   }
 
@@ -33,7 +33,7 @@ class Usuario extends CI_Controller
   public function vista_administracion()
   {
     if (isset($_SESSION['es_Admin'])) {
-      $data['titulo'] = 'Administracion';
+      $data['titulo'] = 'Administrar Aplicación';
       $data['listaUsuarios'] = $this->Usuario_model->buscar_usuario();
       $data['listaExposiciones'] = $this->Exposicion_model->buscar_exposicion();
       $this->load->view('cabecera', $data);

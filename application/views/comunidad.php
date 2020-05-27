@@ -45,7 +45,7 @@
           y de resetear el lienzo, todo accesible mediante una interfaz muy sencilla. Una vez terminada
           solo tendras que darle un nombre y hacer click en 'Crear Obra'.
           <br><br>
-          <a class="btn btn-secundario"> Ver Ahora</a>
+          <a class="btn btn-secundario" href="#dibujo">Comenzar</a>
         </div>
       </div>
       <div class="img-seccion ocultar_movil" style="background-image: url(<?= base_url() . 'recursos/img/seccion/ashkan-forouzani-XLYqnzJlbNs-unsplash.jpg'; ?>)"></div>
@@ -67,7 +67,7 @@
           tipo de dibujos y usarlos de inspiración para crear tu propia obra.
           Si alguna obra se considera inapropiada será eliminada por un administrador.
           <br><br>
-          <a class="btn btn-secundario"> Ver Ahora</a>
+          <a class="btn btn-secundario" href="#obras">Visitar ahora</a>
         </div>
       </div>
     </div>
@@ -78,6 +78,7 @@
     </div>
   </div>
 
+  <a name="dibujo" class="anchor"></a>
   <div class="hero-img banner-seccion" style="background-image: url(<?= base_url() . 'recursos/img/hero-banner/kelly-sikkema-kDN490mHVjI-unsplash.jpg'; ?>)">
     <?php if (isset($_SESSION['nick'])) : ?>
       <div class="contenedor-dibujo container">
@@ -127,6 +128,7 @@
     <?php endif; ?>
   </div>
 
+  <a name="obras"></a>
   <?php
   if (isset($listaObras)) : ?>
     <!-- HEADER LISTA -->
@@ -137,7 +139,7 @@
           <hr>
           <h1>Visita la Colección de Obras</h1>
           <p> 
-            Todas las obras compartidas por los usuarios quedan guardadas juntoa a su titulo y son 
+            Todas las obras compartidas por los usuarios quedan guardadas junto a su titulo y son 
             visibles para el resto de los visitantes, podrás encontrar todo tipo de obras divertidas 
             y originales creadas por otros usuarios.
           </p>

@@ -1,5 +1,5 @@
 canvas {
-  border: solid 1px #EAE6E8;
+  border: solid 1px #DDDDDD;
   width: 400px;
   height: 400px;
   cursor: crosshair;
@@ -70,7 +70,7 @@ canvas {
 }
 
 .seleccionable:hover {
-  border: solid 1px #212020;
+  border: solid 1px #202020;
 }
 
 #color_actual {

@@ -10,9 +10,6 @@
       <a href="<?= base_url() . 'index.php/exposicion/vista_general'; ?>">
         <h3>Volver</h3>
       </a>
-    </div>
-
-    <div class="contenedor-secundario bg-white">
       <div class="panel_informacion">
         <div>
           <h1><?= $titulo; ?></h1><br>
@@ -47,15 +44,9 @@
         <p>N. Visitas: <b><?= $num_visitas; ?></b></p>
         <p>Val. Media: <b><?= $val_media; ?></b></p>
       </div>
-    </div>
-
-    <!-- PORTADA -->
-    <div class="contenedor-secundario bg-white">
+      <!-- PORTADA -->
       <img class="imagen_portada" src="<?= base_url() . $portada; ?>" /><br>
-    </div>
-
-    <!-- DESCRIPCION -->
-    <div class="contenedor-secundario bg-white">
+      <!-- DESCRIPCION -->
       <p><?= $descripcion; ?></p>
     </div>
 

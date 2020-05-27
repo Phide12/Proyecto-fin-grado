@@ -123,9 +123,9 @@ function mostrarGrosorActual() {
   let listaBotones = document.getElementsByClassName('boton_grosor');
   for (let i = 0; i < listaBotones.length; i++) {
     if (listaBotones[i].id == grosorLinea) {
-      listaBotones[i].style.border = 'solid 1px #212020';
+      listaBotones[i].style.border = 'solid 1px #202020';
     } else {
-      listaBotones[i].style.border = 'solid 1px #EAE6E8';
+      listaBotones[i].style.border = 'solid 1px #DDDDDD';
     }
   }
 }

@@ -1,7 +1,5 @@
 <?php if (isset($_SESSION['es_Admin'])) : ?>
-  <main>
-    <div class="fullPage-block fondo-portada" style="background-image: url(<?= base_url() . 'recursos/img/daniele-levis-pelusi-ENdi1TkM1QQ-unsplash.jpg'; ?>)">
-    </div>
+  <main style="background-color: #cccccc;">
     <div class="fullPage-block">
       <div class="contenedor-secundario bg-white">
         <h3>Panel de administración</h3>

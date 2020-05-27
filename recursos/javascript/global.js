@@ -57,12 +57,13 @@ cargarAnimacionesScroll();
  * Scroll automatico
  */
 function cargarAutoScroll() {
-  document.getElementById('click-scroll').addEventListener('click', autoScroll);
-  document.getElementById('btn-ver-ahora').addEventListener('click', autoScroll);
+  if (document.getElementById('click-scroll') != null) {
+    document.getElementById('click-scroll').addEventListener('click', autoScroll);    
+  }
 }
 
 function autoScroll() {  
-  window.scrollTo({top: window.innerHeight - 80, behavior: 'smooth'});
+  window.scrollTo({top: window.innerHeight - 95, behavior: 'smooth'});
 }
 
 cargarAutoScroll();
