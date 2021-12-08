@@ -1,7 +1,7 @@
 # Proyecto final de grado superior DAW
 
 ## Descripción del proyecto
-Pagina web hecha en PHP con el framwork codeigniter, es una Red social / Galeria online de imagenes, en el que el usuario puede ver y subir imagenes. 
+Pagina web hecha en PHP con el framework codeigniter, es una Red social / Galeria online de imagenes, en el que el usuario puede ver y subir imagenes. 
 
 
 ##  Características
